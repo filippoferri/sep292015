@@ -22,6 +22,10 @@ $roots_includes = array(
   'lib/comments.php',        // Custom comments modifications
   'lib/scripts.php',         // Scripts and stylesheets
   'lib/extras.php',          // Custom functions
+
+  'lib/admin.php',         // Admin settings
+  'admin/kirki.php',         // Customizer
+  'admin/customizer.php',    // Settings
 );
 
 foreach ($roots_includes as $file) {
