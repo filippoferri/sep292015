@@ -1,1 +1,123 @@
+@grid-float-breakpoint: @screen-lg-min;
+
 .banner { }
+
+.navbar {
+  background: @brand-primary;
+  padding: 0;
+
+  &-nav { margin: 0 -15px; }
+  .navbar-brand { font-family: @serif; padding: 15px; }
+  button.navbar-toggle { background-color: @brand-success;
+    span { background-color: #FFFFFF; }
+  }
+  a {
+    color: #FFFFFF;
+    font-family: @sans-serif;
+    font-size: 1em;
+  }
+  .nav > li > a {
+    border-bottom: 1px solid @brand-success;
+    &:last-child { border: 0 }
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
+    background-color: @brand-success;
+  }
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {  }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  .navbar {
+    padding: 1em 0;
+    border-bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    .transition (background .5s ease-in-out,padding .5s ease-in-out);
+
+    &.navbar-custom {
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+      text-transform: uppercase;
+      font-family: @sans-serif;
+
+      .navbar-brand {
+        font-weight: 700;
+        color: #FFFFFF;
+        font-family: @serif;
+        font-size: 1em;
+        padding: 1em 0;
+        text-transform: none;
+
+        &:focus {
+          outline: 0;
+        }
+
+      }
+      & .navbar-toggle:focus,
+      & .navbar-toggle:active {
+        outline: 0;
+      }
+      a {
+        color: #FFFFFF;
+        font-size: 0.6em;
+      }
+
+      .nav li.active {
+          outline: 0;
+          background-color: none;
+          cursor: none;
+        a { color: @brand-primary }
+      }
+      .nav li a {
+          color: #FFFFFF;
+          margin-left: 0 1px;
+          border-bottom: inherit;
+          -webkit-transition: background .3s ease-in-out;
+          -moz-transition: background .3s ease-in-out;
+          transition: background .3s ease-in-out;
+      }
+
+      .nav li a:hover,
+      .nav li a:focus {
+        outline: 0;
+        background-color: rgba(84, 166, 80, 0.3);
+        .box-shadow (inherit);
+      }
+
+    }
+  }
+  .top-nav-collapse {
+      padding: 0;
+  }
+  .navbar-custom.top-nav-collapse {
+    background-color: #FFFFFF;
+    border-bottom: none;
+    .box-shadow(0 10px 15px rgba(0,0,0,0.25));
+    .navbar-brand { color: @gray-darker }
+    .nav li a { color: @gray-darker; }
+    .nav li.active {
+      background-color: none;
+
+      a { color: @brand-primary; }
+    }
+    .nav li a:hover,
+    .nav li a:focus {
+      background-color: @brand-primary;
+      color: #FFFFFF;
+
+    }
+
+  }
+  .admin-bar .navbar-fixed-top {
+    top: 32px;
+  }
+}
+
+}

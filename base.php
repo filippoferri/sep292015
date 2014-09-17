@@ -8,14 +8,21 @@
   <![endif]-->
 
   <?php
-    do_action('get_header');
-    get_template_part('templates/header');
+    if ( is_front_page() ){
+      do_action('get_header');
+      get_template_part('templates/header', 'home');
+    } else {
+      do_action('get_header');
+      get_template_part('templates/header');
+    }
   ?>
-
+  <?php if ( !is_front_page() ) { ?>
   <div class="wrap container" role="document">
     <div class="content row">
       <main class="main" role="main">
+  <?php } ?>
         <?php include roots_template_path(); ?>
+  <?php if ( !is_front_page() ) { ?>
       </main><!-- /.main -->
       <?php if (roots_display_sidebar()) : ?>
         <aside class="sidebar" role="complementary">
@@ -24,6 +31,7 @@
       <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
+  <?php } ?>
 
   <?php get_template_part('templates/footer'); ?>
 

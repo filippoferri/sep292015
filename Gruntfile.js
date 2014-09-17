@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    //'assets/vendor/bootstrap/js/transition.js',
+    'assets/vendor/bootstrap/js/transition.js',
     //'assets/vendor/bootstrap/js/alert.js',
     'assets/vendor/bootstrap/js/button.js',
     //'assets/vendor/bootstrap/js/carousel.js',
