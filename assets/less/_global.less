@@ -19,3 +19,32 @@ a:hover {
   .transition(all 0.4s ease-in-out);
   text-decoration: none;
 }
+
+//Gutter
+.no-pad {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+//opacity
+.opacity-0 {
+  .opacity(0);
+  transition: opacity .2s ease-in;
+}
+
+.opacity-1 {
+  .opacity(1);
+  transition: opacity .2s ease-in;
+}
+//Images
+img {
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }

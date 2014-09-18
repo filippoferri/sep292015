@@ -23,21 +23,89 @@ var Roots = {
   common: {
     init: function() {
       // JavaScript to be fired on all pages
+      //Document Ready
+      $(document).ready(function() {
 
-      // jQuery to collapse the navbar on scroll
-      $(window).scroll(function() {
-          if ($(".navbar").offset().top > 50) {
-              $(".navbar-fixed-top").addClass("top-nav-collapse");
-          } else {
-              $(".navbar-fixed-top").removeClass("top-nav-collapse");
-          }
-      });
+        //Lazy Load
+        $("img").unveil(200, function() {
+          $(this).load(function() {
+            this.style.opacity = 1;
+          });
+        });
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+        //Same height
+        $('.fix-height').matchHeight();
+
+	  }); //End document ready
+
     }
   },
   // Home page
   home: {
     init: function() {
       // JavaScript to be fired on the home page
+      $(document).ready(function() {
+
+        //random color
+        $(".b-wrapper").each(function() {
+          var colors = Please.make_color({
+            colors_returned: 4,
+            hue: 12, //set your hue manually
+          });
+          var rand = Math.floor(Math.random()*colors.length);
+          $(this).css("background-color", colors[rand]);
+        });
+        //slide carousel
+        $('.slide_carousel').each(function() {
+          $(this).slick({
+            centerMode: true,
+            centerPadding: '20px',
+            slidesToShow: 3,
+            lazyLoad: 'ondemand',
+            responsive: [
+              {
+                breakpoint: 768,
+                settings: {
+                  arrows: false,
+                  centerMode: true,
+                  centerPadding: '',
+                  slidesToShow: 2
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  arrows: false,
+                  centerMode: true,
+                  centerPadding: '',
+                  slidesToShow: 1
+                }
+              }
+            ]
+          });
+        });
+        //slide intro
+        $('.slide_intro').each(function() {
+          $(this).slick({
+            dots: true,
+            lazyLoad: 'ondemand',
+          });
+        });
+      }); // End document ready
+
+      $(window).load(function(){
+
+
+
+      });
+
     }
   },
   // About us page, note the change from about-us to about_us.
