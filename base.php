@@ -7,6 +7,26 @@
     </div>
   <![endif]-->
 
+
+  <div id="preloader"> <!-- Preloader -->
+    <div id="status" data-animated="fadeIn">
+      <?php
+        if ( is_front_page() ){ ?>
+          <h4><span class="fi fi-bookmarks"></span> <?php bloginfo('name'); ?></h4>
+          <h5><?php bloginfo('description'); ?></h5>
+        <?php } else { ?>
+          <h4>Buona lettura</h4>
+      <?php } ?>
+
+      <div id="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div> <!-- //Preloader -->
+
   <?php
     if ( is_front_page() ){
       do_action('get_header');

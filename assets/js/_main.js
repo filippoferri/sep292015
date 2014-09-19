@@ -23,6 +23,16 @@ var Roots = {
   common: {
     init: function() {
       // JavaScript to be fired on all pages
+
+      //Page load
+      $(window).load(function() {
+
+          $('#status').delay(300).fadeOut('slow');
+          $('#preloader').delay(300).fadeOut('slow');
+          $('body').delay(300).css({'overflow':'visible'});
+
+      }); //End page load
+
       //Document Ready
       $(document).ready(function() {
 
@@ -88,7 +98,7 @@ var Roots = {
                   slidesToShow: 1
                 }
               }
-            ]
+            ],
           });
         });
         //slide intro
@@ -98,14 +108,8 @@ var Roots = {
             lazyLoad: 'ondemand',
           });
         });
+
       }); // End document ready
-
-      $(window).load(function(){
-
-
-
-      });
-
     }
   },
   // About us page, note the change from about-us to about_us.
