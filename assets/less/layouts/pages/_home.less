@@ -7,7 +7,7 @@
       text-align: center;
       padding: 1em 0;
 
-        h2 { font-size: 1.6em; }
+        h2 { font-size: 1.6em; font-style: italic; }
         h1, p { font-size: 1em; }
         h1 { display: block; text-align: left; font-family: @sans-serif;}
         img { display: none }
@@ -188,8 +188,8 @@
     background: #FFFFFF;
 
     span {
-      &.b-title { font-size: 1.2em; display: block;line-height: 1.2em; color: @gray-darker }
-      &.b-author { font-size: 0.6em; font-family: @sans-serif; color: @gray-darker; }
+      &.b-title { font-size: 1.2em; display: block;line-height: 1.2em; color: @gray-darker; font-style: italic; }
+      &.b-author { font-size: 1em; font-family: @sans-serif; color: @gray-darker; }
     }
   }
   .b-read { position: absolute; bottom: -50px; right: 10px; left: 10px; display: block; text-align: center; background-color: #FFFFFF; padding: 0.4em auto; color: @gray-darker; font-family: @sans-serif; .transition( bottom 1s ease-in-out, opacity 0.6s);.opacity(0); }
@@ -206,7 +206,11 @@
   color: #FFFFFF;
   overflow: hidden;
 
-  .boxed { padding: 0 0.6em; .opacity(0) }
+  .boxed {
+    padding: 0 0.6em; .opacity(0);
+
+    h4 { font-style: italic; }
+  }
   .col-lg-4:nth-child(3) {
     border-right: 1px solid rgba(255, 255, 255, 0.48);
     border-left: 1px solid rgba(255, 255, 255, 0.48); }
@@ -229,7 +233,7 @@
 }
 .product_item .project_descr {
   a { font-family: @sans-serif; margin: 0; padding: 0; display: block }
-  span { font-family: @serif; margin: 0; padding: 0; display: block; text-transform: none }
+  span { font-family: @serif; margin: 0; padding: 0; display: block; text-transform: none; font-style: italic; }
 }
 
 .product_item:hover .project_descr {

@@ -27,7 +27,7 @@
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
+@media (min-width: @screen-sm-min) { }
 
 
 /* Medium devices (desktops, 992px and up) */
@@ -40,8 +40,58 @@
     border-bottom: 0;
     background: rgba(255, 255, 255, 0.2);
     .transition (background .5s ease-in-out,padding .5s ease-in-out);
+    &-pages {
+      background-color: #FFFFFF;
+      margin-bottom: 0;
+      .box-shadow(0 10px 15px rgba(0,0,0,0.25));
+      text-transform: uppercase;
+      font-family: @sans-serif;
+      .navbar-brand {
+        font-weight: 700;
+        color: @gray-darker;
+        font-family: @serif;
+        font-size: 1em;
+        padding: 1em inherit;
+        text-transform: none;
 
-    &.navbar-custom {
+        &:focus {
+          outline: 0;
+        }
+
+      }
+      & .navbar-toggle:focus,
+      & .navbar-toggle:active {
+        outline: 0;
+      }
+      a {
+        color: @gray-darker;
+        font-size: 0.6em;
+      }
+
+      .nav li.active {
+          outline: 0;
+          background-color: none;
+          cursor: none;
+        a { color: @brand-primary }
+      }
+      .nav li a {
+          color: @gray-darker;
+          letter-spacing: 1px;
+          margin-left: 0 1px;
+          border-bottom: inherit;
+          -webkit-transition: background .3s ease-in-out;
+          -moz-transition: background .3s ease-in-out;
+          transition: background .3s ease-in-out;
+      }
+
+      .nav li a:hover,
+      .nav li a:focus {
+        outline: 0;
+        color: @brand-primary;
+        background-color: transparent;
+      }
+    }
+    &-custom {
       margin-bottom: 0;
       border-bottom: 1px solid rgba(255,255,255,.3);
       text-transform: uppercase;
@@ -52,7 +102,7 @@
         color: #FFFFFF;
         font-family: @serif;
         font-size: 1em;
-        padding: 1em 0;
+        padding: 1em inherit;
         text-transform: none;
 
         &:focus {
@@ -77,11 +127,13 @@
       }
       .nav li a {
           color: #FFFFFF;
+          letter-spacing: 1px;
           margin-left: 0 1px;
           border-bottom: inherit;
           -webkit-transition: background .3s ease-in-out;
           -moz-transition: background .3s ease-in-out;
           transition: background .3s ease-in-out;
+
       }
 
       .nav li a:hover,
@@ -96,7 +148,7 @@
   .top-nav-collapse {
       padding: 0;
   }
-  .navbar-custom.top-nav-collapse {
+  .navbar-custom.top-nav-collapse, .navbar-pages.top-nav-collapse {
     background-color: #FFFFFF;
     border-bottom: none;
     .box-shadow(0 10px 15px rgba(0,0,0,0.25));
@@ -118,6 +170,4 @@
   .admin-bar .navbar-fixed-top {
     top: 32px;
   }
-}
-
 }

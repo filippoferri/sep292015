@@ -38,7 +38,7 @@ add_action( 'admin_init', 'remove_dashboard_meta' );
 
 // Custom WordPress Admin Color Scheme
 function admin_css() {
-    wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/css/admin-style.css' );
+    wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/assets/css/admin-style.css' );
 }
 add_action('admin_print_styles', 'admin_css' );
 

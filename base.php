@@ -7,8 +7,8 @@
     </div>
   <![endif]-->
 
-
-  <div id="preloader"> <!-- Preloader -->
+  <!-- Preloader -->
+  <div id="preloader">
     <div id="status" data-animated="fadeIn">
       <?php
         if ( is_front_page() ){ ?>
@@ -25,8 +25,10 @@
         <span></span>
       </div>
     </div>
-  </div> <!-- //Preloader -->
+  </div>
+  <!-- //Preloader -->
 
+  <!-- Header -->
   <?php
     if ( is_front_page() ){
       do_action('get_header');
@@ -36,22 +38,9 @@
       get_template_part('templates/header');
     }
   ?>
-  <?php if ( !is_front_page() ) { ?>
-  <div class="wrap container" role="document">
-    <div class="content row">
-      <main class="main" role="main">
-  <?php } ?>
-        <?php include roots_template_path(); ?>
-  <?php if ( !is_front_page() ) { ?>
-      </main><!-- /.main -->
-      <?php if (roots_display_sidebar()) : ?>
-        <aside class="sidebar" role="complementary">
-          <?php include roots_sidebar_path(); ?>
-        </aside><!-- /.sidebar -->
-      <?php endif; ?>
-    </div><!-- /.content -->
-  </div><!-- /.wrap -->
-  <?php } ?>
+  <!-- //Header -->
+
+  <?php include roots_template_path(); ?>
 
   <?php get_template_part('templates/footer'); ?>
 

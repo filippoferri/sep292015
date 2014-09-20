@@ -25,7 +25,7 @@ var Roots = {
       // JavaScript to be fired on all pages
 
       //Page load
-      $(window).load(function() {
+      jQuery(window).load(function () {
 
           $('#status').delay(300).fadeOut('slow');
           $('#preloader').delay(300).fadeOut('slow');
@@ -36,8 +36,12 @@ var Roots = {
       //Document Ready
       $(document).ready(function() {
 
+        $('a').click(function() {
+          $("#preloader").fadeIn('slow');
+          $('body').delay(300).css({'overflow':'visible'});
+        });
         //Lazy Load
-        $("img").unveil(200, function() {
+        $("img.lazy").unveil(200, function() {
           $(this).load(function() {
             this.style.opacity = 1;
           });
@@ -52,6 +56,43 @@ var Roots = {
         });
         //Same height
         $('.fix-height').matchHeight();
+
+        //Sharing button
+        var completed = 0;
+        var windowLocation = window.location.href.replace(window.location.hash, '');
+
+        //facebook
+        function facebookShare() {
+          window.open('https://www.facebook.com/sharer/sharer.php?u=' + windowLocation, "facebookWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+          return false;
+        }
+        $('.facebook-share').click(facebookShare);
+
+        //Google Plus
+        function googlePlusShare() {
+          window.open('https://plus.google.com/share?url=' + windowLocation, "googlePlusWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+          return false;
+        }
+        $('.google-plus-share').click(googlePlusShare);
+
+        //Twitter
+        function twitterShare() {
+        var $pageTitle = encodeURIComponent($("h1").text());
+        window.open('http://twitter.com/intent/tweet?text=' + $pageTitle + ' ' + windowLocation, "twitterWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+          return false;
+        }
+        $('.twitter-share').click(twitterShare);
+
+        //affix
+        $('.ff-affix').affix({
+          offset: {
+            top: 140,
+            bottom: function() {
+              return (this.bottom = $('#comments').outerHeight(true));
+            }
+          }
+        });
+
 
 	  }); //End document ready
 

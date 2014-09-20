@@ -44,7 +44,7 @@
 <section class="box">
   <div class="container">
 
-      <div class="slide_carousel" data-animated="fadeInUp" data-appear-top-offset="-100">
+      <div class="slide_carousel" data-animated="fadeInUp">
         <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><span></span><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
         <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
         <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
@@ -63,7 +63,7 @@
     <div class="row">
 
       <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <a class="b-wrapper" href="#" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title">Sono il titolo lungo lungo</span>
             <span class="b-author">Sono l'autore</span>
@@ -72,7 +72,7 @@
         </a>
       </div>
       <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <a class="b-wrapper" href="#" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title">Sono il titolo</span>
             <span class="b-author">Sono l'autore</span>
@@ -80,7 +80,7 @@
         </a>
       </div>
       <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <a class="b-wrapper" href="#" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title">Sono il titolo</span>
             <span class="b-author">Sono l'autore</span>
@@ -88,7 +88,7 @@
         </a>
       </div>
       <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <a class="b-wrapper" href="#" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title">Sono il titolo</span>
             <span class="b-author">Sono l'autore</span>
@@ -106,21 +106,21 @@
       <h3 class="title white"><span></span>L'arte di leggere e di non leggere<span></span></h3>
 
       <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <div class="boxed" data-animated="fadeInUp">
           <h4>Soltanto gente che scrive poesie</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
           <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <div class="boxed" data-animated="fadeInUp">
           <h4>Soltanto gente che scrive poesie</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
           <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <div class="boxed" data-animated="fadeInUp">
           <h4>Soltanto gente che scrive poesie</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
           <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
@@ -137,9 +137,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <div class="product_item" data-animated="fadeInUp" data-appear-top-offset="-100">
+        <div class="product_item" data-animated="fadeInUp">
             <div class="hover_img">
-                <img data-src="http://lorempixel.com/300/400/people" alt="" width="100%" />
+                <img class="lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%" />
             </div>
             <div class="item_btn_in center">
                 <a class="tovar_open" href="#" alt="" target="_blank">Scopri su Amazon</a>
@@ -151,13 +151,13 @@
         </div>
       </div>
       <div class="col-lg-3">
-        <img class="img-responsive" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
+        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
       </div>
       <div class="col-lg-3">
-        <img class="img-responsive" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
+        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
       </div>
       <div class="col-lg-3">
-        <img class="img-responsive" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
+        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
       </div>
     </div>
   </div>
