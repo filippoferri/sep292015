@@ -6,10 +6,18 @@
   h1.entry-title {
     font-size: 2.6em;
     font-style: italic;
-    margin: 1em 0 1.6em 0
+    margin: 2.6em 0 0.6em 0
+  }
+  .entry-info {
+    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+    padding: 1em 0;
+    margin: 0 0 2.6em 0;
+    font-family: @sans-serif;
+    color: @gray-light;
+    span { margin-right: 1.6em }
   }
 }
-
 .hentry .entry-content {
   img { max-width: 100%; max-height: auto }
   blockquote { border-color: @brand-primary; font-style: italic; }
@@ -18,7 +26,7 @@
 .hentry .entry-newsletter {
   background-color: #f7f5f5;
   padding: 1.6em;
-  margin: 1em 0;
+  margin: 2.6em 0;
   text-align: center;
   .border-radius(3px);
   h4 { font-style: italic; }
@@ -42,8 +50,53 @@
     .gform_footer { margin: 0 !important; padding: 0 !important; text-align: center }
   }
 }
+.entry-footer {
+  .author { display: block; border-top: 1px solid #f0f0f0; padding: 1em 0; margin: 1em 0; font-family: @sans-serif; }
+}
 
-.page-nav { text-align: center; border-top: 1px solid @gray; border-bottom: 1px solid @gray; margin: 1em 0;  padding: 0.6em;  p { margin: 0 } }
+#comments {
+  h4 {
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+  }
+  h5 { font-family: @sans-serif; display: block; text-align: center; margin-bottom: 4.6em }
+  img.avatar { .border-radius(50%);margin-right: 1.6em  }
+  .media-list li { margin-bottom: 1.6em; border-bottom:1px solid #F0F0F0; padding-bottom: 1.6em; }
+  .media-body {
+    position: relative;
+
+    .media-heading {
+      font-family: @sans-serif;
+      display: block;
+      margin-bottom: 1.6em;
+      padding-right: 150px;
+      span { text-transform: uppercase; display: block; margin-top: 5px; }
+      time { font-size: 0.6em; color: @gray-light; margin: 0 }
+    }
+    .media-right { position: absolute; right: 0; top: 0; font-size: 0.6em; font-family: @sans-serif; text-transform: uppercase; }
+  }
+}
+#respond {
+  margin: 2.6em 0;
+
+  h4 {
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+  }
+  form { margin: 2.6em 0 }
+  .form-group { overflow: hidden; width: 100%; text-align: center }
+  button { .transition(background 2s ease-in-out); margin: 0 auto;
+    &:hover { background-color: @brand-success }
+  }
+  input { width: 100%; padding: 1em; margin-bottom: 1em }
+  textarea { padding: 1em }
+}
+
+.page-nav { text-align: center; border-top: 1px solid @gray; border-bottom: 1px solid @gray; margin: 1.6em 0;  padding: 0.6em;  p { margin: 0 } }
 
 .hentry .byline {}  .hentry footer {}
 /* Small devices (tablets, 768px and up) */
@@ -78,6 +131,13 @@
     }
   }
 }
+  .entry-header {
+    h1.entry-title {
+      font-size: 2.6em;
+      font-style: italic;
+      margin: 1em 0 1.6em 0
+    }
+  }
   .entry-meta {
     border-left: 1px solid @gray-light;
     padding: 1.6em 0;
@@ -121,5 +181,6 @@
       &:hover { color: @brand-primary }
     }
   }
+  #respond { input { width: 32%; } input[type=email] { display: inline-block; margin: 0 auto } }
 
 }

@@ -36,7 +36,7 @@ var Roots = {
       //Document Ready
       $(document).ready(function() {
 
-        $('a').click(function() {
+        $('a.leave').click(function() {
           $("#preloader").fadeIn('slow');
           $('body').delay(300).css({'overflow':'visible'});
         });
@@ -88,7 +88,7 @@ var Roots = {
           offset: {
             top: 140,
             bottom: function() {
-              return (this.bottom = $('#comments').outerHeight(true));
+              return  (this.bottom = $('#comments').outerHeight(true) );
             }
           }
         });

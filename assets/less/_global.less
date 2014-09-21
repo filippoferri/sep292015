@@ -35,9 +35,10 @@ a:hover {
   .opacity(1);
   transition: opacity .2s ease-in;
 }
-
-.padleft {
-  padding-left: 2.6em;
+@media (min-width: @screen-lg-min) {
+  .padleft {
+    padding-left: 2.6em;
+  }
 }
 //Images
 img.lazy {
@@ -67,6 +68,11 @@ img.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.simplebox:focus, .simplebox:hover {
+  outline: none;
+  border-color: @brand-primary !important;
+  .box-shadow(none);
 }
 /* Icons */
 @font-face {
