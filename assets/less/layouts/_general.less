@@ -47,3 +47,28 @@
     margin: 0 0.6em 5px 0.6em;
   }
 }
+
+
+//tables
+table {
+  .border-radius(3px);
+  border: 1px solid @gray-light;
+  margin: 1em auto;
+  font-family: @sans-serif;
+}
+
+ table thead, table tfoot { background: @gray-lighter; }
+ table thead tr th,
+ table tfoot tr th,
+ table tbody tr td,
+ table tr td,
+ table tfoot tr td { text-align: left; padding: 0.6em }
+ table thead tr th,
+ table tfoot tr td { padding: 8px 10px 9px; font-weight: bold; color: @gray-darker; padding: 0.4em }
+ table thead tr th:first-child, table tfoot tr td:first-child { border-left: none; padding: 0.6em }
+ table thead tr th:last-child, table tfoot tr td:last-child { border-right: none; padding: 0.6em }
+
+table tbody tr.even,
+table tbody tr.alt { background: @gray-lighter; }
+table tbody tr:nth-child(even) { background: @gray-lighter; }
+table tbody tr td, table tbody tr th { color: @gray-darker; vertical-align: middle; border: none; padding: 0.6em }
