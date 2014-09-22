@@ -28,6 +28,15 @@
   </div>
   <!-- //Preloader -->
 
+   <!-- Searcher -->
+  <div id="searcher">
+    <span class="search-close">CHIUDI <i class="fi fi-cross"></i></span>
+    <div class="search-box">
+      <?php get_search_form(); ?>
+    </div>
+  </div>
+  <!-- //Searcher -->
+
   <!-- Header -->
   <?php
     if ( is_front_page() ){

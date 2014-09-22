@@ -1,6 +1,7 @@
 <header class="banner navbar navbar-pages navbar-fixed-top" role="banner">
   <div class="container">
     <div class="navbar-header">
+      <span class="fi fi-search navbar-text search-open btn btn-primary hidden-lg"></span>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -18,7 +19,7 @@
           wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
         endif;
       ?>
-      <span class="fi fi-search search navbar-text navbar-right visible-lg-inline-block"></span>
+      <span class="fi fi-search search-open navbar-text navbar-right visible-lg-inline-block"></span>
     </nav>
   </div>
 </header>

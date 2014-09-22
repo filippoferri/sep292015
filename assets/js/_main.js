@@ -36,9 +36,16 @@ var Roots = {
       //Document Ready
       $(document).ready(function() {
 
+        //buttons
         $('a.leave').click(function() {
           $("#preloader").fadeIn('slow');
           $('body').delay(300).css({'overflow':'visible'});
+        });
+        $('span.search-open').click(function() {
+          $("#searcher").addClass('showme').fadeIn('slow');
+        });
+        $('span.search-close').click(function() {
+          $("#searcher").removeClass('showme').fadeOut('slow');
         });
         //Lazy Load
         $("img.lazy").unveil(200, function() {

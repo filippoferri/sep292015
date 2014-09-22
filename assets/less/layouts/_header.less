@@ -23,11 +23,13 @@
   .nav > li > a:hover, .nav > li > a:focus {
     background-color: @brand-success;
   }
-  .search.navbar-text {
+  .search-open.navbar-text {
     margin-top: 0; margin-bottom: 0; padding: 20px 0px 20px 15px;
     cursor: pointer;
     &:hover { color: @brand-primary }
   }
+
+  .navbar-search { margin: 9px; float: right }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -139,7 +141,7 @@
           transition: background .3s ease-in-out;
 
       }
-      .search.navbar-text { color: #FFFFFF }
+      .search-open.navbar-text { color: #FFFFFF }
 
     }
 
@@ -167,7 +169,7 @@
       background-color: @brand-primary;
       color: #FFFFFF;
     }
-    .search.navbar-text { color: @gray-darker }
+    .search-open.navbar-text { color: @gray-darker }
   }
 //  .admin-bar .navbar-fixed-top {
 //    top: 32px;
