@@ -31,16 +31,16 @@ function ff_register_meta_boxes( $meta_boxes )
 	// Better has an underscore as last sign
 	$prefix = 'ff_';
 
-	// Background
+	// Amazon
 	$meta_boxes[] = array(
 		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
-		'id' => 'standard',
+		'id' => 'amz_dettagli',
 
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title' => __( 'Background', 'roots' ),
+		'title' => __( 'Dettagli', 'roots' ),
 
 		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
-		'pages' => array( 'page' ),
+		'pages' => array( 'amazon' ),
 
 		// Where the meta box appear: normal (default), advanced, side. Optional.
 		'context' => 'normal',
@@ -54,55 +54,145 @@ function ff_register_meta_boxes( $meta_boxes )
 		// List of meta fields
 		'fields' => array(
 
-            // CHECKBOX
-			array(
-				'name' => __( 'Enable Custom Background', 'rwmb' ),
-				'id'   => "{$prefix}enable_bg",
-				'type' => 'checkbox',
-				// Value can be 0 or 1
-				'std'  => 0,
-			),
-            // COLOR
-			array(
-				'name' => __( 'Color picker', 'rwmb' ),
-				'id'   => "{$prefix}bg_color",
-				'type' => 'color',
-                'std'     => '#3A3436',
-			),
-
 			// IMAGE ADVANCED (WP 3.5+)
 			array(
-				'name'             => __( 'Upload your images', 'roots' ),
-				'id'               => "{$prefix}bg",
+				'name'             => __( 'Carica frontespizio', 'roots' ),
+				'id'               => "amz_cover",
 				'type'             => 'image_advanced',
-				'max_file_uploads' => 10,
+				'max_file_uploads' => 1,
 			),
 
 			// TITLE
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'Title', 'roots' ),
+				'name'  => __( 'Titolo', 'roots' ),
 				// Field ID, i.e. the meta key
-				'id'    => "{$prefix}title",
+				'id'    => "amz_title",
 				// Field description (optional)
-				'desc'  => __( 'Will create a big title', 'roots' ),
+				//'desc'  => __( 'Will create a big title', 'roots' ),
 				'type'  => 'text',
 			),
 			// SUBTITLE
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'SubTitle', 'roots' ),
+				'name'  => __( 'Autore', 'roots' ),
 				// Field ID, i.e. the meta key
-				'id'    => "{$prefix}subtitle",
+				'id'    => "amz_author",
 				// Field description (optional)
-				'desc'  => __( 'Will create a subtitle', 'roots' ),
+				//'desc'  => __( 'Will create a subtitle', 'roots' ),
 				'type'  => 'text',
+			),
+			// AMAZON URL
+			array(
+				'name'  => __( 'Amazon Link', 'root' ),
+				'id'    => "amz_url",
+				'desc'  => __( 'URL description', 'root' ),
+				'type'  => 'url',
+				'std'   => 'http://',
 			),
 
 		),
 	);
 
+	// Dettagli
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id' => 'dettagli',
 
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title' => __( 'Dettagli', 'roots' ),
+
+		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+		'pages' => array( 'post' ),
+
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context' => 'side',
+
+		// Order of meta box: high (default), low. Optional.
+		'priority' => 'high',
+
+		// Auto save: true, false (default). Optional.
+		'autosave' => true,
+
+		// List of meta fields
+		'fields' => array(
+
+			// AUTORE
+			array(
+				// Field name - Will be used as label
+				'name'  => __( 'Autore', 'roots' ),
+				// Field ID, i.e. the meta key
+				'id'    => "autore",
+				// Field description (optional)
+				//'desc'  => __( 'Will create a big title', 'roots' ),
+				'type'  => 'text',
+			),
+
+			// IMAGE ADVANCED (WP 3.5+)
+			array(
+				'name'             => __( 'Immagine dell\'autore', 'roots' ),
+				'id'               => "immagine",
+				'type'             => 'image_advanced',
+				'max_file_uploads' => 1,
+			),
+
+			// SUBTITLE
+			array(
+				// Field name - Will be used as label
+				'name'  => __( 'Titolo', 'roots' ),
+				// Field ID, i.e. the meta key
+				'id'    => "titolo",
+				// Field description (optional)
+				//'desc'  => __( 'Will create a subtitle', 'roots' ),
+				'type'  => 'textarea',
+			),
+
+		),
+	);
+
+	// Descrizione e frontespizio
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id' => 'desc',
+
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title' => __( 'Breve descrizione', 'roots' ),
+
+		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+		'pages' => array( 'post' ),
+
+		// Order of meta box: high (default), low. Optional.
+		'priority' => 'high',
+
+		// Auto save: true, false (default). Optional.
+		'autosave' => true,
+
+		// List of meta fields
+		'fields' => array(
+
+			// In breve
+			array(
+				// Field name - Will be used as label
+				'name'  => __( 'Solo poche parole', 'roots' ),
+				// Field ID, i.e. the meta key
+				'id'    => "descrizione",
+				// Field description (optional)
+				//'desc'  => __( 'Will create a subtitle', 'roots' ),
+				'type'  => 'textarea',
+				'cols' => 20,
+				'rows' => 6,
+			),
+
+			// IMAGE ADVANCED (WP 3.5+)
+			array(
+				'name'             => __( 'Immagine di copertina', 'roots' ),
+				'id'               => "frontespizio",
+				'type'             => 'image_advanced',
+				'max_file_uploads' => 1,
+			),
+
+		),
+	);
 
 	return $meta_boxes;
 }

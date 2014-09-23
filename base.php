@@ -31,7 +31,7 @@
   <!-- //Preloader -->
 
    <!-- Searcher -->
-  <div id="searcher">
+  <div id="searcher" data-animated="fadeIn">
     <span class="search-close">CHIUDI <i class="fi fi-cross"></i></span>
     <div class="search-box">
       <?php get_search_form(); ?>

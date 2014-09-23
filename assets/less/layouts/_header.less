@@ -26,7 +26,7 @@
   .search-open.navbar-text {
     margin-top: 0; margin-bottom: 0; padding: 20px 0px 20px 15px;
     cursor: pointer;
-    &:hover { color: @brand-primary; .transition(color 2s ease-in-out); }
+    &:hover { color: @brand-primary; .transition(color .2s ease-in-out); }
   }
 
   .navbar-search { margin: 9px; float: right }
@@ -74,6 +74,7 @@
       a {
         color: @gray-darker;
         font-size: 0.6em;
+        &:hover { .transition(color .2s ease-in-out); }
       }
 
       .nav li.active {
@@ -118,6 +119,7 @@
       a {
         color: #FFFFFF;
         font-size: 0.6em;
+        &:hover { .transition(color .2s ease-in-out); }
       }
 
       .nav li.active {
@@ -134,7 +136,7 @@
           -webkit-transition: background .3s ease-in-out;
           -moz-transition: background .3s ease-in-out;
           transition: background .3s ease-in-out;
-
+          &:hover { .transition(color .2s ease-in-out); }
       }
       .search-open.navbar-text { color: #FFFFFF }
 
@@ -143,6 +145,7 @@
     .nav > li > a:hover, .nav > li > a:focus {
       background-color: transparent;
       color: @brand-primary;
+      &:hover { .transition(color .2s ease-in-out); }
     }
   }
   .top-nav-collapse {
@@ -163,8 +166,10 @@
     .nav li a:focus {
       background-color: @brand-primary;
       color: #FFFFFF;
+      .transition(all .2s ease-in-out);
     }
     .search-open.navbar-text {
+      color: @gray-darker;
       &:hover { color: @brand-primary; .transition(all 0.2s ease-in-out); }
     }
   }

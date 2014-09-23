@@ -18,6 +18,10 @@ function roots_setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size( 'amz-cover', 300, 400 );
+  add_image_size( 'intro-cover', 400, 600 );
+  add_image_size( 'homepage-thumb', 400, 350, true );
+  add_image_size( 'archive-thumb', 500, 300, true );
 
   // Add post formats
   // http://codex.wordpress.org/Post_Formats
@@ -82,3 +86,68 @@ add_action( 'wp', 'custom_paged_404_fix' );
 //  }
 //}
 //add_action( 'pre_get_posts', 'my_post_queries' );
+#-----------------------------------------------------------------#
+# Create admin authors section
+#-----------------------------------------------------------------#
+function authors_register() {
+
+     $authors_labels = array(
+        'name' => __( 'Autori', 'taxonomy general name', 'roots'),
+        'singular_name' => __( 'Autore', 'roots'),
+        'search_items' =>  __( 'Cerca autore', 'roots'),
+        'all_items' => __( 'Tutti gli autori', 'roots'),
+        'parent_item' => __( 'Autore principale', 'roots'),
+        'edit_item' => __( 'Edita Autore', 'roots'),
+        'update_item' => __( 'Aggiorna Autore', 'roots'),
+        'add_new_item' => __( 'Aggiungi nuovo autore', 'roots')
+     );
+
+
+     $args = array(
+            'labels' => $authors_labels,
+            'singular_label' => __('Autore', 'roots'),
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'hierarchical' => false,
+            'menu_position' => 6,
+            'menu_icon' => 'dashicons-edit',
+            'supports' => array('title', 'editor', 'thumbnail')
+       );
+
+    register_post_type( 'authors' , $args );
+}
+add_action('init', 'authors_register');
+
+#-----------------------------------------------------------------#
+# Create amazon amazon section
+#-----------------------------------------------------------------#
+function amazon_register() {
+
+	 $amazon_labels = array(
+	 	'name' => __( 'Amazon', 'taxonomy general name', 'roots'),
+		'singular_name' => __( 'Libri', 'roots'),
+		'search_items' =>  __( 'Cerca libri', 'roots'),
+		'all_items' => __( 'Tutti i libri', 'roots'),
+		'parent_item' => __( 'Libro principale', 'roots'),
+		'edit_item' => __( 'Edita libro', 'roots'),
+		'update_item' => __( 'Aggiorna libro', 'roots'),
+		'add_new_item' => __( 'Aggiungi nuovo libro', 'roots')
+	 );
+
+
+	 $args = array(
+			'labels' => $amazon_labels,
+			'singular_label' => __('Amazon', 'roots'),
+			'public' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'hierarchical' => false,
+			'menu_position' => 6,
+			'menu_icon' => 'dashicons-book-alt',
+			'supports' => array('title')
+       );
+
+    register_post_type( 'amazon' , $args );
+}
+add_action('init', 'amazon_register');

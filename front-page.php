@@ -1,3 +1,16 @@
+<?php
+//variables
+$titolo       = get_post_meta($post->ID, "titolo", true);
+$autore       = get_post_meta($post->ID, "autore", true);
+$desc         = get_post_meta($post->ID, 'descrizione', true);
+$frontespizi  = rwmb_meta( 'frontespizio', 'type=image&size=intro-cover', $post->ID );
+$amz_titolo   = get_post_meta($post->ID, "amz_titolo", true);
+$amz_autore   = get_post_meta($post->ID, "amz_autore", true);
+$amz_url      = get_post_meta($post->ID, "amz_url", true);
+$amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID );
+?>
+
+
 <!-- Intro Header -->
 <section class="intro">
   <div class="intro-body">
@@ -5,33 +18,45 @@
     <div class="container">
       <div class="row review">
       <div class="slide_intro">
-        <div class="intro_item" data-animated="fadeIn">
-          <div class="col-lg-3 col-lg-offset-1">
-            <div class="img-wrap-a">
-              <span></span><a class="zoom" href="#"></a>
-              <img class="img-responsive" data-lazy="http://lorempixel.com/400/600/abstract" width="400" height="600">
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <h1>Recensione di</h1>
-            <h2>Hotel degli introvabili di Stefano Simoncelli</h2>
-            <p>Una raccolta che si può rubricare tra i canzonieri d’amore più belli di questi anni è La rissa deli angeli (1986-1996) edesce nel 2006. Altre due raccolte, Giocavo all’ala e Terza copia del gelo, rispettivamente del 2004 e del 2012, elaborano il tema dell’addio, il dialogo tra i vivi e i morti. Molto utilizzata è quella figura retorica tipica della poesia che consiste nel rivolgersi a un interlocutore con un tu, ma nelle poesie di Simoncelli non si avverte nessuna enfasi retorica.</p>
-            <a href="" class="btn btn-border"><span class="fi fi-book2"></span> Leggi la recensione</a>
-          </div>
-        </div>
-        <div class="intro_item" data-animated="fadeIn">
-          <div class="col-lg-3 col-lg-offset-1">
-            <a class="fancybox" rel="reviews" href="http://lorempixel.com/400/600/abstract">
-              <img class="img-responsive" data-lazy="http://lorempixel.com/400/600/abstract" width="400" height="600">
-            </a>
-          </div>
-          <div class="col-lg-7">
-            <h1>Recensione di</h1>
-            <h2>Hotel degli introvabili di Stefano Simoncelli</h2>
-            <p>Una raccolta che si può rubricare tra i canzonieri d’amore più belli di questi anni è La rissa deli angeli (1986-1996) edesce nel 2006. Altre due raccolte, Giocavo all’ala e Terza copia del gelo, rispettivamente del 2004 e del 2012, elaborano il tema dell’addio, il dialogo tra i vivi e i morti. Molto utilizzata è quella figura retorica tipica della poesia che consiste nel rivolgersi a un interlocutore con un tu, ma nelle poesie di Simoncelli non si avverte nessuna enfasi retorica.</p>
-            <a href="" class="btn btn-border">Leggi la recensione completa</a>
-          </div>
-        </div>
+
+      <?php
+      $args = array(
+          'post_type'               => 'post',
+          'order'                   => 'DESC',
+              'ignore_sticky_posts' => 1,
+              'posts_per_page'      => 4,
+              'category__in'        => 51
+      );
+
+      $the_query = new WP_Query( $args );
+
+      // The Loop
+      if ( $the_query->have_posts() ) {
+          while ( $the_query->have_posts() ) {
+              $the_query->the_post(); ?>
+             <div class="intro_item" data-animated="fadeIn">
+                <div class="col-lg-3 col-lg-offset-1">
+                  <div class="img-wrap-a">
+                    <span></span><a class="zoom" href="<?php the_permalink() ?>"></a>
+                    <?php foreach ( $frontespizi as $frontespizio ) {
+                    echo '<img class="img-responsive" data-lazy="{$frontespizio["url"]}" width="400" height="600">';
+              } ?>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <h1>Recensione di <?php echo $autore ?></h1>
+                  <h2><?php echo $titolo ?></h2>
+                  <p><?php if ($desc) { echo $desc; } else { the_excerpt(); } ?></p>
+                  <a href="<?php the_permalink() ?>" class="btn btn-border"><span class="fi fi-book2"></span> Leggi la recensione</a>
+                </div>
+              </div>
+      <?php   }
+      } else {
+          // no posts found
+      }
+      /* Restore original Post Data */
+      wp_reset_postdata();
+      ?>
       </div>
       </div>
     </div>
@@ -45,10 +70,30 @@
   <div class="container">
 
       <div class="slide_carousel" data-animated="fadeInUp">
-        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><span></span><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
-        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
-        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
-        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="http://lorempixel.com/400/350/nature" alt=""><a class="zoom" href="#"></a></div><span class="c-title">sono il titolo</span></div>
+
+      <?php
+        $args = array(
+            'post_type'               => 'post',
+            'order'                   => 'DESC',
+                'ignore_sticky_posts' => 1,
+                'posts_per_page'      => 4,
+                'category__in'        => 66
+        );
+
+        $the_query = new WP_Query( $args );
+
+        // The Loop
+        if ( $the_query->have_posts() ) {
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post(); ?>
+        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="<?php wp_get_attachment_image( 1, 'homepage-thumb', null, null ); ?>" alt=""><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a href="<?php the_permalink() ?>" alt="<?php echo $titolo ?>"><?php echo $titolo ?></a></span></div>
+        <?php   }
+        } else {
+            // no posts found
+        }
+        /* Restore original Post Data */
+        wp_reset_postdata();
+        ?>
 
       </div> <!-- // End Carousel -->
 
@@ -62,39 +107,37 @@
   <div class="container">
     <div class="row">
 
+      <?php
+      $args = array(
+          'post_type'               => 'post',
+          'order'                   => 'DESC',
+              'ignore_sticky_posts' => 1,
+              'posts_per_page'      => 4,
+              'category__in'        => 4
+      );
+
+      $the_query = new WP_Query( $args );
+
+      // The Loop
+      if ( $the_query->have_posts() ) {
+          while ( $the_query->have_posts() ) {
+              $the_query->the_post(); ?>
       <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp">
+        <a class="b-wrapper" href="<?php the_permalink() ?>" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
-            <span class="b-title">Sono il titolo lungo lungo</span>
-            <span class="b-author">Sono l'autore</span>
+            <span class="b-title"><?php echo $titolo ?></span>
+            <span class="b-author"><?php echo $autore ?></span>
           </div>
           <div class="b-read">leggi</div>
         </a>
       </div>
-      <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp">
-          <div class="b-wrap fix-height">
-            <span class="b-title">Sono il titolo</span>
-            <span class="b-author">Sono l'autore</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp">
-          <div class="b-wrap fix-height">
-            <span class="b-title">Sono il titolo</span>
-            <span class="b-author">Sono l'autore</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-3">
-        <a class="b-wrapper" href="#" data-animated="fadeInUp">
-          <div class="b-wrap fix-height">
-            <span class="b-title">Sono il titolo</span>
-            <span class="b-author">Sono l'autore</span>
-          </div>
-        </a>
-      </div>
+      <?php   }
+      } else {
+          // no posts found
+      }
+      /* Restore original Post Data */
+      wp_reset_postdata();
+      ?>
 
     </div>
   </div>
@@ -104,61 +147,84 @@
   <div class="container">
     <div class="row d-content">
       <h3 class="title white"><span></span>L'arte di leggere e di non leggere<span></span></h3>
+      <?php
+      $args = array(
+          'post_type'               => 'post',
+          'order'                   => 'DESC',
+              'ignore_sticky_posts' => 1,
+              'posts_per_page'      => 3,
+              'category__in'        => 10
+      );
 
+      $the_query = new WP_Query( $args );
+
+      // The Loop
+      if ( $the_query->have_posts() ) {
+          while ( $the_query->have_posts() ) {
+              $the_query->the_post(); ?>
       <div class="col-lg-4">
         <div class="boxed" data-animated="fadeInUp">
-          <h4>Soltanto gente che scrive poesie</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
+          <h4><?php echo $titolo ?></h4>
+          <p><?php if ($desc) { echo $desc; } else { the_excerpt(); } ?></p>
           <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp">
-          <h4>Soltanto gente che scrive poesie</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
-          <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp">
-          <h4>Soltanto gente che scrive poesie</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia possimus inventore assumenda sit iste quam enim perspiciatis tempore velit doloremque voluptate accusantium neque, temporibus numquam nemo delectus, eveniet similique, vel fugiat itaque!</p>
-          <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
-        </div>
-      </div>
+      <?php   }
+      } else {
+          // no posts found
+      }
+      /* Restore original Post Data */
+      wp_reset_postdata();
+      ?>
     </div>
   </div>
 </section>
 
 <h3 class="title"><span></span>Buona Lettura<span></span></h3>
 
-
 <div class="box">
   <div class="container">
     <div class="row">
+
+      <?php
+      $args = array(
+          'post_type'               => 'amazon',
+          'order'                   => 'DESC',
+              'ignore_sticky_posts' => 1,
+              'posts_per_page'      => 3,
+      );
+
+      $the_query = new WP_Query( $args );
+
+      // The Loop
+      if ( $the_query->have_posts() ) {
+          while ( $the_query->have_posts() ) {
+              $the_query->the_post(); ?>
       <div class="col-lg-3">
         <div class="product_item" data-animated="fadeInUp">
             <div class="hover_img">
-                <img class="lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%" />
+            <?php
+            foreach ( $amz_imgs as $amz_img ) {
+                echo '<img class="lazy" data-src="{$image["url"]}" alt="" width="100%" />';
+            }
+            ?>
             </div>
             <div class="item_btn_in center">
-                <a class="tovar_open" href="#" alt="" target="_blank">Scopri su Amazon</a>
+              <a class="tovar_open" href="<?php echo $amz_url ?>" alt="<?php echo $amz_title ?>" target="_blank">Scopri su Amazon</a>
             </div>
             <div class="project_descr">
-                <a href="#" alt="">Virgilio Dionisi</a>
-                <span class="title">Il manoscritto ritrovato</span>
+                <a href="#" alt=""><?php echo $amz_author ?></a>
+                <span class="title"><?php echo $amz_title ?></span>
             </div>
         </div>
       </div>
-      <div class="col-lg-3">
-        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
-      </div>
-      <div class="col-lg-3">
-        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
-      </div>
-      <div class="col-lg-3">
-        <img class="img-responsive lazy" data-src="http://lorempixel.com/300/400/people" alt="" width="100%">
-      </div>
+      <?php   }
+      } else {
+          // no posts found
+      }
+      /* Restore original Post Data */
+      wp_reset_postdata();
+      ?>
     </div>
   </div>
 </div>
