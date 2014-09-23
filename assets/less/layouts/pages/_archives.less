@@ -1,19 +1,22 @@
 .article_block {
   margin:0 -20px;
+  padding-bottom: 2.6em;
+  width: 100%;
+  position: relative;
 
-  .element {
-    margin-bottom: 20px;
-    display: none;
-    opacity: 0;
+  .row:first-of-type {
+    margin: 0;
   }
-  .element.show { opacity: 1; display: block; .transition(all 2s ease-in-out) }
+  .element {
+    margin: 10px 0;
+  }
 
   .entry-item {
     background-color: #FFFFFF;
     padding: 20px;
     overflow: hidden;
     text-align: center;
-    .box-shadow(0 1px 0 rgba(0,0,0,.15),0 0 1px rgba(0,0,0,.3));
+    .box-shadow(0 1px 2px rgba(0,0,0,0.15));
 
     .featured-img {
       margin:-20px -20px 1.6em -20px;
@@ -28,7 +31,9 @@
   .pagination {
       display: none;
       visibility: hidden;
+    text-align: center;
   }
-
+  #infscr-loading { position: absolute; bottom: 1em; left: 50%;  display: block; padding: 0; text-align: center; }
 
 }
+@media (min-width: @screen-lg-min) { .article_block #infscr-loading { margin-left: -200px; width: 400px; } }

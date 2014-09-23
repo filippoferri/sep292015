@@ -56,18 +56,29 @@ function roots_widgets_init() {
 }
 add_action('widgets_init', 'roots_widgets_init');
 
+//404 patch
+function custom_paged_404_fix( ) {
+	global $wp_query;
 
+	if ( is_404() || !is_paged() || 0 != count( $wp_query->posts ) )
+		return;
 
-function my_post_queries( $query ) {
-  // do not alter the query on wp-admin pages and only alter it if it's the main query
-  if (!is_admin() && $query->is_main_query()){
-
-    // alter the query for the home and category pages
-
-    if(is_category()){
-      $query->set('posts_per_page', -1);
-    }
-
-  }
+	$wp_query->set_404();
+	status_header( 404 );
+	nocache_headers();
 }
-add_action( 'pre_get_posts', 'my_post_queries' );
+add_action( 'wp', 'custom_paged_404_fix' );
+
+//function my_post_queries( $query ) {
+//  // do not alter the query on wp-admin pages and only alter it if it's the main query
+//  if (!is_admin() && $query->is_main_query()){
+//
+//    // alter the query for the home and category pages
+//
+//    if(is_category()){
+//      $query->set('posts_per_page', -1);
+//    }
+//
+//  }
+//}
+//add_action( 'pre_get_posts', 'my_post_queries' );
