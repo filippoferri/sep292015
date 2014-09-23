@@ -166,7 +166,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
         <div class="boxed" data-animated="fadeInUp">
           <h4><?php echo $titolo ?></h4>
           <p><?php if ($desc) { echo $desc; } else { the_excerpt(); } ?></p>
-          <div><a class="btn btn-empty" href="#"><span class="fi fi-book2"></span> Leggi</a></div>
+          <div><a class="btn btn-empty" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span> Leggi</a></div>
         </div>
       </div>
       <?php   }
