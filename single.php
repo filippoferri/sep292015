@@ -21,7 +21,7 @@
             }
             echo '<a class="btn btn-empty" href="'.$url.'">Indietro</a>';
           ?>
-          <a class="zoom pull-right" href="#"><span class="fi fi-popup"></span></a>
+          <a class="zoom pull-right" href="http://lorempixel.com/1000/1080/nature" rel="prettyPhoto"><span class="fi fi-popup"></span></a>
         </div>
         <span class="overlay"></span>
         <img class="lazy" data-src="http://lorempixel.com/1000/1080/nature" alt="" width="1000" height="1000">

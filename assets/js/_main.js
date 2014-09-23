@@ -37,16 +37,25 @@ var Roots = {
       $(document).ready(function() {
 
         //buttons
-        $('a.leave').click(function() {
-          $("#preloader").fadeIn('slow');
-          $('body').delay(300).css({'overflow':'visible'});
-        });
-        $('span.search-open').click(function() {
-          $("#searcher").addClass('showme').fadeIn('slow');
-        });
-        $('span.search-close').click(function() {
-          $("#searcher").removeClass('showme').fadeOut('slow');
-        });
+            //Link Open
+            function linkOpen() {
+              $("#preloader").fadeIn('slow');
+              $('body').delay(300).css({'overflow':'visible'});
+              return false;
+            }
+            $('a.leave').click(linkOpen);
+            //Search Open
+            function searchOpen() {
+              $("#searcher").addClass('showme').fadeIn('slow');
+              return false;
+            }
+            $('span.search-open').click(searchOpen);
+            //Search Close
+            function searchClose() {
+              $("#searcher").removeClass('showme').fadeOut('slow');
+              return false;
+            }
+            $('span.search-close').click(searchClose);
         //Lazy Load
         $("img.lazy").unveil(200, function() {
           $(this).load(function() {
@@ -68,27 +77,25 @@ var Roots = {
         var completed = 0;
         var windowLocation = window.location.href.replace(window.location.hash, '');
 
-        //facebook
-        function facebookShare() {
-          window.open('https://www.facebook.com/sharer/sharer.php?u=' + windowLocation, "facebookWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
-          return false;
-        }
-        $('.facebook-share').click(facebookShare);
-
-        //Google Plus
-        function googlePlusShare() {
-          window.open('https://plus.google.com/share?url=' + windowLocation, "googlePlusWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
-          return false;
-        }
-        $('.google-plus-share').click(googlePlusShare);
-
-        //Twitter
-        function twitterShare() {
-        var $pageTitle = encodeURIComponent($("h1").text());
-        window.open('http://twitter.com/intent/tweet?text=' + $pageTitle + ' ' + windowLocation, "twitterWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
-          return false;
-        }
-        $('.twitter-share').click(twitterShare);
+            //facebook
+            function facebookShare() {
+              window.open('https://www.facebook.com/sharer/sharer.php?u=' + windowLocation, "facebookWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+              return false;
+            }
+            $('.facebook-share').click(facebookShare);
+            //Google Plus
+            function googlePlusShare() {
+              window.open('https://plus.google.com/share?url=' + windowLocation, "googlePlusWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+              return false;
+            }
+            $('.google-plus-share').click(googlePlusShare);
+            //Twitter
+            function twitterShare() {
+            var $pageTitle = encodeURIComponent($("h1").text());
+            window.open('http://twitter.com/intent/tweet?text=' + $pageTitle + ' ' + windowLocation, "twitterWindow", "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0");
+              return false;
+            }
+            $('.twitter-share').click(twitterShare);
 
         //affix
         $('.ff-affix').affix({
@@ -100,6 +107,29 @@ var Roots = {
           }
         });
 
+        //Fancybox
+        $("a[rel^='prettyPhoto']").prettyPhoto({
+          animation_speed: 'slow', /* fast/slow/normal */
+          slideshow: 5000, /* false OR interval time in ms */
+          autoplay_slideshow: false, /* true/false */
+          opacity: 0.80, /* Value between 0 and 1 */
+          show_title: false, /* true/false */
+          allow_resize: true, /* Resize the photos bigger than viewport. true/false */
+          default_width: 500,
+          default_height: 344,
+          counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
+          theme: 'light_square', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+          horizontal_padding: 20, /* The padding on each side of the picture */
+          wmode: 'opaque', /* Set the flash wmode attribute */
+          modal: false, /* If set to true, only the close button will close the window */
+          deeplinking: true, /* Allow prettyPhoto to update the url to enable deeplinking. */
+          overlay_gallery: true, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
+          keyboard_shortcuts: true, /* Set to false if you open forms inside prettyPhoto */
+          changepicturecallback: function(){}, /* Called everytime an item is shown/changed */
+          callback: function(){}, /* Called when prettyPhoto is closed */
+          ie6_fallback: true,
+          social_tools: false /* html or false to disable */
+      });
 
 	  }); //End document ready
 
