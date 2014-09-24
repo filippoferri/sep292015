@@ -1,16 +1,12 @@
-<p class="byline author vcard">
 <?php
-    // Retrieve The Post's Author ID
-    $user_id = get_the_author_meta('ID');
-    // Set the image size. Accepts all registered images sizes and array(int, int)
-    $size = 'thumbnail';
-
-    // Get the image URL using the author ID and image size params
-    $imgURL = get_cupp_meta($user_id, $size);
-
-    // Print the image on the page
-    echo '<img class="img-circle lazy" data-src="'. $imgURL .'" alt="" width="100%">';
+//variables
+$profiles = rwmb_meta( 'immagine', 'type=image&size=thumbnail', $post->ID );
 ?>
+<p class="byline author vcard">
+<?php foreach ( $profiles as $profile ) {
+  echo '<img class="img-circle lazy" data-src="{$profile["url"]}" width="100%">';
+} ?>
+
  <br>
   <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn">
     <?php echo get_the_author(); ?>

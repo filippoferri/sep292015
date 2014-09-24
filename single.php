@@ -1,4 +1,8 @@
-<div class="container-fluid">
+<?php
+//variables
+$featured = wp_get_attachment_image_src( $img_id, 'full' );
+?>
+  <div class="container-fluid">
   <div class="row pad150">
     <div class="col-lg-8 col-lg-offset-3">
       <header class="entry-header padleft">
@@ -24,8 +28,11 @@
           <a class="zoom pull-right" href="http://lorempixel.com/1000/1080/nature" rel="prettyPhoto"><span class="fi fi-popup"></span></a>
         </div>
         <span class="overlay"></span>
-        <img class="lazy" data-src="http://lorempixel.com/1000/1080/nature" alt="" width="1000" height="1000">
-
+        <?php if ( has_post_thumbnail() ) { ?>
+        <img class="lazy" data-src="<?php echo $featured[0] ?>" alt="" width="1000" height="1000">
+        <?php } else { ?>
+        <img class="lazy" data-src="<?php echo get_template_directory_uri(); ?>/assets/img/books.jpg" alt="" width="1000" height="1000">
+        <?php } ?>
       </div>
     </div>
     <div class="col-lg-6 col-lg-offset-3">
