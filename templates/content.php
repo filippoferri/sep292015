@@ -18,7 +18,7 @@ $image_attributes = wp_get_attachment_image_src( $img_id, 'archive-thumb' );
       ?>
    </div>
     <header>
-      <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo $titolo ?></a></h2>
+      <h2 class="entry-title"><a class="leave" href="<?php the_permalink(); ?>"><?php if ($titolo) { echo $titolo; } else { the_title(); } ?></a></h2>
       <?php // get_template_part( 'templates/entry-meta'); ?>
     </header>
     <div class="entry-summary">

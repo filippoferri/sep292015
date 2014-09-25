@@ -117,23 +117,21 @@ function ff_register_meta_boxes( $meta_boxes )
 		// List of meta fields
 		'fields' => array(
 
-			// AUTORE
+			// Lista Autori
 			array(
-				// Field name - Will be used as label
-				'name'  => __( 'Autore', 'roots' ),
-				// Field ID, i.e. the meta key
-				'id'    => "autore",
-				// Field description (optional)
-				//'desc'  => __( 'Will create a big title', 'roots' ),
-				'type'  => 'text',
-			),
+				'name'    => __( 'Autori', 'roots' ),
+				'id'      => "author",
+				'type'    => 'post',
 
-			// IMAGE ADVANCED (WP 3.5+)
-			array(
-				'name'             => __( 'Immagine dell\'autore', 'roots' ),
-				'id'               => "immagine",
-				'type'             => 'image_advanced',
-				'max_file_uploads' => 1,
+				// Post type
+				'post_type' => 'authors',
+				// Field type, either 'select' or 'select_advanced' (default)
+				'field_type' => 'select_advanced',
+				// Query arguments (optional). No settings means get all published posts
+				'query_args' => array(
+					'post_status'    => 'publish',
+					'posts_per_page' => - 1,
+				)
 			),
 
 			// SUBTITLE
@@ -189,6 +187,45 @@ function ff_register_meta_boxes( $meta_boxes )
 				'id'               => "frontespizio",
 				'type'             => 'image_advanced',
 				'max_file_uploads' => 1,
+			),
+
+		),
+	);
+
+  	// Amazon
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id' => 'auth_dettagli',
+
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title' => __( 'Breve descrizione', 'roots' ),
+
+		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+		'pages' => array( 'authors' ),
+
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context' => 'normal',
+
+		// Order of meta box: high (default), low. Optional.
+		'priority' => 'high',
+
+		// Auto save: true, false (default). Optional.
+		'autosave' => true,
+
+		// List of meta fields
+		'fields' => array(
+
+			// TITLE
+			array(
+				// Field name - Will be used as label
+				'name'  => __( 'In poche parole...', 'roots' ),
+				// Field ID, i.e. the meta key
+				'id'    => "auth_desc",
+				// Field description (optional)
+				//'desc'  => __( 'Will create a big title', 'roots' ),
+				'type'  => 'textarea',
+				'cols' => 20,
+				'rows' => 6,
 			),
 
 		),

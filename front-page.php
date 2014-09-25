@@ -47,7 +47,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
                   <h1>Recensione di <?php echo $autore ?></h1>
                   <h2><?php echo $titolo ?></h2>
                   <p><?php if ($desc) { echo $desc; } else { the_excerpt(); } ?></p>
-                  <a href="<?php the_permalink() ?>" class="btn btn-border"><span class="fi fi-book2"></span> Leggi la recensione</a>
+                  <a href="<?php the_permalink() ?>" class="btn btn-border leave"><span class="fi fi-book2"></span> Leggi la recensione</a>
                 </div>
               </div>
       <?php   }
@@ -86,7 +86,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
         if ( $the_query->have_posts() ) {
             while ( $the_query->have_posts() ) {
                 $the_query->the_post(); ?>
-        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="<?php wp_get_attachment_image( 1, 'homepage-thumb', null, null ); ?>" alt=""><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a href="<?php the_permalink() ?>" alt="<?php echo $titolo ?>"><?php echo $titolo ?></a></span></div>
+        <div class="carousel_intro"><div class="img-wrap"><img data-lazy="<?php wp_get_attachment_image( 1, 'homepage-thumb', null, null ); ?>"><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a class="leave" href="<?php the_permalink() ?>" alt="<?php echo $titolo ?>"><?php echo $titolo ?></a></span></div>
         <?php   }
         } else {
             // no posts found
@@ -123,7 +123,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
           while ( $the_query->have_posts() ) {
               $the_query->the_post(); ?>
       <div class="col-lg-3">
-        <a class="b-wrapper" href="<?php the_permalink() ?>" data-animated="fadeInUp">
+        <a class="b-wrapper leave" href="<?php the_permalink() ?>" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title"><?php echo $titolo ?></span>
             <span class="b-author"><?php echo $autore ?></span>
@@ -166,7 +166,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
         <div class="boxed" data-animated="fadeInUp">
           <h4><?php echo $titolo ?></h4>
           <p><?php if ($desc) { echo $desc; } else { the_excerpt(); } ?></p>
-          <div><a class="btn btn-empty" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span> Leggi</a></div>
+          <div><a class="btn btn-empty leave" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span> Leggi</a></div>
         </div>
       </div>
       <?php   }
@@ -210,7 +210,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
             ?>
             </div>
             <div class="item_btn_in center">
-              <a class="tovar_open" href="<?php echo $amz_url ?>" alt="<?php echo $amz_title ?>" target="_blank">Scopri su Amazon</a>
+              <a class="tovar_open leave" href="<?php echo $amz_url ?>" alt="<?php echo $amz_title ?>" target="_blank">Scopri su Amazon</a>
             </div>
             <div class="project_descr">
                 <a href="#" alt=""><?php echo $amz_author ?></a>

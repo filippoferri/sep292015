@@ -4,7 +4,7 @@
   .widget {
     margin-top: 2.6em;
     margin-bottom: 2.6em;
-    .opacity(0);
+    //.opacity(0);
 
     h4 { font-family: @sans-serif; text-transform: uppercase; color: @gray-light; font-size: 1em; font-weight: bold; margin-bottom: 1em }
     ul {
@@ -40,3 +40,14 @@
     .copyright_logo { }
   }
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .content-info .widget { .opacity(0); }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {}

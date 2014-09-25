@@ -38,12 +38,10 @@ var Roots = {
 
         //buttons
             //Link Open
-            function linkOpen() {
+            $('a.leave, .navbar a, .content-info a').click( function() {
               $("#preloader").fadeIn('slow');
-              $('body').delay(300).css({'overflow':'visible'});
-              return false;
-            }
-            $('a.leave').click(linkOpen);
+              window.location = $(this).attr("href");
+            });
             //Search Open
             function searchOpen() {
               $("#searcher").addClass('showme').fadeIn('slow');

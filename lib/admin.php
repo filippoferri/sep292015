@@ -12,12 +12,12 @@ function demo_footer_version ($default) {
 }
 add_filter ('update_footer', 'demo_footer_version', 999);
 
-//Remove the 28px Push Down from the Admin Bar
-add_action('get_header', 'my_filter_head');
-
-  function my_filter_head() {
-    remove_action('wp_head', '_admin_bar_bump_cb');
-  }
+////Remove the 28px Push Down from the Admin Bar
+//add_action('get_header', 'my_filter_head');
+//
+//  function my_filter_head() {
+//    remove_action('wp_head', '_admin_bar_bump_cb');
+//  }
 
 
 //Unwanted dashboard widgets

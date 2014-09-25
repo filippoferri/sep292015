@@ -1,12 +1,14 @@
 <?php
 //variables
+$img_id   = get_post_thumbnail_id();
 $featured = wp_get_attachment_image_src( $img_id, 'full' );
+$titolo   = get_post_meta($post->ID, "titolo", true);
 ?>
   <div class="container-fluid">
   <div class="row pad150">
     <div class="col-lg-8 col-lg-offset-3">
       <header class="entry-header padleft">
-        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <h1 class="entry-title"><?php echo $titolo ?></h1>
         <div class="entry-info hidden-lg">
           <span class="published" datetime="<?php echo get_the_time('c'); ?>"> <?php echo __('<i class="fi fi-calendar"></i>', 'roots') ?> <?php echo get_the_date(); ?></span> <span><i class="fi fi-archive"></i><?php the_category(' '); ?></span>
         </div>
@@ -25,7 +27,9 @@ $featured = wp_get_attachment_image_src( $img_id, 'full' );
             }
             echo '<a class="btn btn-empty" href="'.$url.'">Indietro</a>';
           ?>
-          <a class="zoom pull-right" href="http://lorempixel.com/1000/1080/nature" rel="prettyPhoto"><span class="fi fi-popup"></span></a>
+          <?php if ( has_post_thumbnail() ) { ?>
+          <a class="zoom pull-right" href="<?php echo $featured[0] ?>" rel="prettyPhoto"><span class="fi fi-popup"></span></a>
+          <?php } ?>
         </div>
         <span class="overlay"></span>
         <?php if ( has_post_thumbnail() ) { ?>

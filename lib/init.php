@@ -97,7 +97,7 @@ function authors_register() {
         'search_items' =>  __( 'Cerca autore', 'roots'),
         'all_items' => __( 'Tutti gli autori', 'roots'),
         'parent_item' => __( 'Autore principale', 'roots'),
-        'edit_item' => __( 'Edita Autore', 'roots'),
+        'edit_item' => __( 'Modifica autore', 'roots'),
         'update_item' => __( 'Aggiorna Autore', 'roots'),
         'add_new_item' => __( 'Aggiungi nuovo autore', 'roots')
      );

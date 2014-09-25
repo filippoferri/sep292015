@@ -1,0 +1,33 @@
+.page .entry-content {
+  img { max-width: 100%; max-height: auto }
+  blockquote { border-color: @brand-primary; font-style: italic; }
+  pre { padding: 1em; font-family: @font-family-monospace; }
+  h1,h2,h3,h4,h5,h6 { margin: 1em inherit; font-style: italic; }
+}
+.profile-img { text-align: center; margin-top: 1em;
+  img { display: inline-block; margin: 0 auto }
+}
+ul.article-list {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+   li { font-style: italic; padding: 0.6em 0; margin-bottom: 0.6em; border-bottom: 1px solid @gray-light
+   }
+}
+
+ul.authors-list {
+  margin: 0; padding:1em 0; list-style: none;
+
+  li {
+    padding:1em 4.6em 1em 1em; border-bottom: 1px solid @gray-light; position: relative;
+    &:last-child { border-bottom: none }
+
+    a { font-style: italic; font-size: 1.6em; }
+    span { display: inline-block; position: absolute; right: 1em; bottom: 1em; }
+  }
+}
+
+.error404 {
+  h3 { font-style: italic; display: block; text-align: center }
+  .no-found { text-align: center; margin: 2.6em auto }
+}

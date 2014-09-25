@@ -14,9 +14,13 @@
         if ( is_front_page() ){ ?>
           <h4><span class="fi fi-bookmarks"></span> <?php bloginfo('name'); ?></h4>
           <h5><?php bloginfo('description'); ?></h5>
-        <?php } else if ( is_archive() || is_category() ) { ?>
+      <?php } else if ( is_archive() || is_category() ) { ?>
           <h4>Archivio in preparazione</h4>
-        <?php } else { ?>
+      <?php } else if ( is_404() ) { ?>
+          <h4>Stiamo incontrando qualche problema...</h4>
+      <?php } else if ( is_page() ) { ?>
+          <h4>Solo qualche istante...</h4>
+      <?php } else { ?>
           <h4>Buona lettura</h4>
       <?php } ?>
 
