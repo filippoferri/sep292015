@@ -3,11 +3,16 @@ $(window).load(function() {
     var $container = $('.article_block');
 
     //Isotope
-    $container.isotope({
-      itemSelector: '.element',
-      masonry: {
-        columnWidth: 1
-      }
+    $("img.loading").unveil(200, function() {
+      $(this).load(function() {
+        $container.isotope({
+          itemSelector: '.element',
+          masonry: {
+            columnWidth: 1
+          }
+        });
+        this.style.opacity = 1;
+      });
     });
 
     // Infinite Scroll
@@ -26,8 +31,13 @@ $(window).load(function() {
     // Infinite Scroll Callback
     function( newElements ) {
         var $newElems = jQuery( newElements ).hide();
-            $newElems.fadeIn();
+          $newElems.fadeIn();
             $container.isotope( 'appended', $newElems );
+            $("img.loading").unveil(200, function() {
+              $(this).load(function() {
+                this.style.opacity = 1;
+              });
+            });
     });
 
 

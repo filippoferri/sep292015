@@ -22,7 +22,8 @@
       margin:-20px -20px 1.6em -20px;
       overflow: hidden;
 
-      img {
+      img.loading {
+        .opacity(0);
         .transition(all 0.2s ease-in-out 0s);
         &:hover { .transform(scale(1.1)); }
       }
@@ -58,4 +59,6 @@
   #infscr-loading { position: absolute; bottom: 1em; left: 50%;  display: block; padding: 0; text-align: center; }
 
 }
-@media (min-width: @screen-lg-min) { .article_block #infscr-loading { margin-left: -200px; width: 400px; } }
+@media (min-width: @screen-lg-min) {
+  .article_block #infscr-loading { margin-left: -200px; width: 400px; }
+}

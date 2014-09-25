@@ -41,10 +41,10 @@
   span {
     border-top:1px solid @gray-dark;
     border-bottom: 1px solid @gray-dark;
-    width:4.23em;
+    width:100%;
     height: 5px;
-    display: inline-block;
-    margin: 0 0.6em 5px 0.6em;
+    display: block;
+    margin: 0.6em auto;
   }
 }
 
@@ -71,3 +71,7 @@ table tbody tr.even,
 table tbody tr.alt { background: @gray-lighter; }
 table tbody tr:nth-child(even) { background: @gray-lighter; }
 table tbody tr td, table tbody tr th { color: @gray-darker; vertical-align: middle; border: none; padding: 0.6em }
+
+@media (min-width: @screen-lg-min) {
+  .title span { width:4.23em; display: inline-block; margin: 0 0.6em 5px 0.6em; }
+}

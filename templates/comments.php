@@ -4,7 +4,7 @@
   }
 ?>
 
-<section id="comments">
+<section id="comments" data-animated="fadeInUp">
   <?php if (have_comments()) : ?>
     <h4>Unisciti alla conversazione</h4>
     <h5><?php printf(_n('1 commento', '%1$s commenti', get_comments_number(), 'roots'), number_format_i18n(get_comments_number()), get_the_title()); ?></h5>
@@ -38,7 +38,7 @@
   <?php endif; ?>
 </section><!-- /#comments -->
 
-<section id="respond">
+<section id="respond" data-animated="fadeInUp">
   <?php if (comments_open()) : ?>
     <h4><?php comment_form_title(__('Leave a Reply', 'roots'), __('Leave a Reply to %s', 'roots')); ?></h4>
     <p class="cancel-comment-reply text-center"><?php cancel_comment_reply_link(); ?></p>

@@ -27,9 +27,9 @@ var Roots = {
       //Page load
       jQuery(window).load(function () {
 
-          $('#status').delay(300).fadeOut('slow');
+          $('#msg-loading').delay(300).fadeOut('slow');
           $('#preloader').delay(300).fadeOut('slow');
-          $('body').delay(300).css({'overflow':'visible'});
+          $('body').delay(300).css("overflow","visible");
 
       }); //End page load
 
@@ -39,18 +39,25 @@ var Roots = {
         //buttons
             //Link Open
             $('a.leave, .navbar a, .content-info a').click( function() {
-              $("#preloader").fadeIn('slow');
+              $("#preloader").fadeIn(300);
+              $('body').delay(300).css("overflow","hidden");
               window.location = $(this).attr("href");
             });
             //Search Open
             function searchOpen() {
-              $("#searcher").addClass('showme').fadeIn('slow');
+              $("#preloader").fadeIn(300);
+              $("#searcher").css('opacity', 1);
+              $("#loader").css('opacity', 0);
+              $('body').delay(300).css("overflow","hidden");
               return false;
             }
             $('span.search-open').click(searchOpen);
             //Search Close
             function searchClose() {
-              $("#searcher").removeClass('showme').fadeOut('slow');
+              $("#preloader").fadeOut(300);
+              $("#searcher").css("opacity", 0);
+              $('body').delay(300).css("overflow","visible");
+              $("#loader").delay(600).fadeIn(0);
               return false;
             }
             $('span.search-close').click(searchClose);

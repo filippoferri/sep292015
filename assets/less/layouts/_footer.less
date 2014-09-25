@@ -32,6 +32,7 @@
     border-top: 1px solid @gray-dark;
     padding: 1em 0;
     font-family: @sans-serif;
+    text-align: center;
     span {
       color: @gray-light;
       font-family: @sans-serif;
@@ -50,4 +51,6 @@
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {}
+@media (min-width: @screen-lg-min) {
+  .content-info .copyright { text-align: left }
+}

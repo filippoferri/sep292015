@@ -10,7 +10,7 @@ $titolo   = get_post_meta($post->ID, "titolo", true);
       <header class="entry-header padleft">
         <h1 class="entry-title"><?php echo $titolo ?></h1>
         <div class="entry-info hidden-lg">
-          <span class="published" datetime="<?php echo get_the_time('c'); ?>"> <?php echo __('<i class="fi fi-calendar"></i>', 'roots') ?> <?php echo get_the_date(); ?></span> <span><i class="fi fi-archive"></i><?php the_category(' '); ?></span>
+          <span class="published" datetime="<?php echo get_the_time('c'); ?>"> <?php echo __('<i class="fi fi-calendar"></i>', 'roots') ?> <?php echo get_the_date(); ?></span> <span><i class="fi fi-bookmark"></i><?php the_category(' '); ?></span>
         </div>
       </header>
     </div>

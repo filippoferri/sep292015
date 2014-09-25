@@ -1,3 +1,4 @@
+.page-header { border: 0; padding-top: 1em; padding-bottom:1em  }
 .page .entry-content {
   img { max-width: 100%; max-height: auto }
   blockquote { border-color: @brand-primary; font-style: italic; }
@@ -30,4 +31,8 @@ ul.authors-list {
 .error404 {
   h3 { font-style: italic; display: block; text-align: center }
   .no-found { text-align: center; margin: 2.6em auto }
+}
+
+@media (min-width: @screen-lg-min) {
+  .page-header { border: 0; padding-top: 0; padding-bottom:1em  }
 }
