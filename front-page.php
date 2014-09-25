@@ -35,7 +35,7 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
           while ( $the_query->have_posts() ) {
               $the_query->the_post(); ?>
              <div class="intro_item" data-animated="fadeIn">
-                <div class="col-lg-3 col-lg-offset-1">
+                <div class="col-lg-3 col-md-offset-1">
                   <div class="img-wrap-a">
                     <span></span><a class="zoom" href="<?php the_permalink() ?>"></a>
                     <?php foreach ( $frontespizi as $frontespizio ) {
@@ -57,20 +57,6 @@ $amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID )
       /* Restore original Post Data */
       wp_reset_postdata();
       ?>
-      <div class="intro_item" data-animated="fadeIn">
-                <div class="col-lg-3 col-lg-offset-1">
-                  <div class="img-wrap-a">
-                    <span></span><a class="zoom" href="<?php the_permalink() ?>"></a>
-                    <img class="img-responsive" data-lazy="http://lorempixel.com/400/600/abstract" width="400" height="600">
-                  </div>
-                </div>
-                <div class="col-lg-7">
-                  <h1>Recensione di <?php echo $autore ?></h1>
-                  <h2>Ciao ciao bell'uomo</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque maiores aut eaque accusantium velit quo porro, laboriosam hic, corporis consequatur suscipit soluta labore adipisci obcaecati optio commodi, repellat quod voluptate.</p>
-                  <a href="<?php the_permalink() ?>" class="btn btn-border leave"><span class="fi fi-book2"></span> Leggi la recensione</a>
-                </div>
-              </div>
       </div>
       </div>
     </div>
