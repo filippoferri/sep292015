@@ -1,20 +1,31 @@
-<?php if ( ! is_single() ) { ?>
- <footer class="content-info" role="contentinfo">
+<?php if( !is_single() ) { ?>
+<footer class="content-info" role="contentinfo">
   <div class="container">
     <div class="row">
       <?php dynamic_sidebar( 'sidebar-footer'); ?>
     </div>
   </div>
-  <!-- COPYRIGHT -->
-  <div class="copyright">
 
-    <!-- CONTAINER -->
-    <div class="container clearfix">
-      <a class="copyright_logo" href="javascript:void(0);">Freedom</a>  <span> &copy; Copyright 2020</span>
+  <!-- CONTAINER -->
+  <div class="bottom container clearfix">
+   <div class="row">
+      <!-- COPYRIGHT -->
+      <div class="brand col-lg-4">
+         <a class="copyright_logo" href="<?php bloginfo('url'); ?>" alt=""><span class="fi fi-logo"></span><?php bloginfo( 'name'); ?> </a>
+      </div>
+      <!-- //COPYRIGHT -->
+      <!-- BRAND -->
+      <div class="copyright col-lg-8">
+          <?php
+          $copy = get_theme_mod( 'copy' );
+          echo comicpress_copyright();
+          if ($copy) { echo $copy; } else {  echo ' Tutti i diritti riservati'; } ?>
+      </div>
+      <!-- //BRAND -->
     </div>
-    <!-- //CONTAINER -->
   </div>
-  <!-- //COPYRIGHT -->
+  <!-- //CONTAINER -->
+
 </footer>
 <?php } ?>
 

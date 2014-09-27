@@ -25,14 +25,16 @@
   h1,h2,h3,h4,h5,h6 { margin: 1em inherit; font-style: italic; }
 }
 .hentry .entry-newsletter {
-  //background-color: #f7f5f5;
+  background-color: @gray-darker;
+  color: @gray-lighter;
   padding: 1.6em;
   margin: 2.6em 0;
   text-align: center;
   border-top: 1px solid @gray-light;
   border-bottom: 1px solid @gray-light;
-  //.border-radius(3px);
+  .border-radius(0.22222222em);
   h4 { font-style: italic; }
+  p { margin: 0 0 1.2em 0 }
   .gform_wrapper  {
     text-align: center;
 
@@ -42,7 +44,7 @@
       line-height: 50px;
       padding: 0 1em;
       .border-radius(3px);
-      background-color: @gray-lighter;
+      background-color: #FFFFFF;
       margin-bottom: 0.6em;
       font-size: 1em;
       border: 0;
@@ -99,7 +101,7 @@
   textarea { padding: 1em }
 }
 
-.page-nav { text-align: center; border-top: 1px solid @gray; border-bottom: 1px solid @gray; margin: 1.6em 0;  padding: 0.6em;  p { margin: 0 } }
+.page-nav { text-align: center; border-top: 1px solid @gray; margin: 1.6em 0;  padding: 0.6em;  p { margin: 0 } }
 
 .hentry .byline {}  .hentry footer {}
 /* Small devices (tablets, 768px and up) */

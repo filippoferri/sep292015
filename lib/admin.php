@@ -42,6 +42,29 @@ function admin_css() {
 }
 add_action('admin_print_styles', 'admin_css' );
 
+//LOGIN
+function login_css() {
+    wp_enqueue_style( 'login_css', get_template_directory_uri() . '/assets/css/login-style.css' );
+    //wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/style-login.js' );
+}
+add_action( 'login_enqueue_scripts', 'login_css' );
+
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+    //Add Login Url
+    function my_login_logo_url_title() {
+        return 'Filobus66';
+    }
+    add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+    //Remove Password Link
+    function remove_lostpassword_text ( $text ) {
+        if ($text == 'Lost your password?'){$text = '';}
+        return $text;
+    }
+    add_filter( 'gettext', 'remove_lostpassword_text' );
 
 //Remove Logo from admin bar
 function annointed_admin_bar_remove() {
@@ -76,20 +99,20 @@ function ff_customizer_config() {
 		//'logo_image'   => get_template_directory_uri() . '/admin/assets/img/logo.png',
 
 		// The color of active menu items, help bullets etc.
-		'color_active' => '#1abc9c',
+		'color_active' => '#a0c263',
 
 		// Color used for secondary elements and desable/inactive controls
-		'color_light'  => '#8cddcd',
+		'color_light'  => '#93ab67',
 
 		// Color used for button-set controls and other elements
-		'color_select' => '#34495e',
+		'color_select' => '#a0c263',
 
 		// Color used on slider controls and image selects
 		'color_accent' => '#FF5740',
 
 		// The generic background color.
 		// You should choose a dark color here as we're using white for the text color.
-		'color_back'   => '#222',
+		'color_back'   => '#46403c',
 
 		// If Kirki is embedded in your theme, then you can use this line to specify its location.
 		// This will be used to properly enqueue the necessary stylesheets and scripts.
