@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
 
-  var theme = 'designderena';
+  var theme = 'filobus66';
   var folder = (theme + '.zip');
 
   // Load all tasks

@@ -112,6 +112,7 @@ function authors_register() {
             'hierarchical' => false,
             'menu_position' => 6,
             'menu_icon' => 'dashicons-edit',
+		    'rewrite' => array( 'slug' => 'autori' ),
             'supports' => array('title', 'editor', 'thumbnail')
        );
 

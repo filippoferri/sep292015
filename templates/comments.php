@@ -40,16 +40,16 @@
 
 <section id="respond" data-animated="fadeInUp">
   <?php if (comments_open()) : ?>
-    <h4><?php comment_form_title(__('Leave a Reply', 'roots'), __('Leave a Reply to %s', 'roots')); ?></h4>
+    <h4><?php comment_form_title(__('Lascia un commento', 'roots'), __('Lascia un commento a %s', 'roots')); ?></h4>
     <p class="cancel-comment-reply text-center"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) : ?>
-      <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'roots'), wp_login_url(get_permalink())); ?></p>
+      <p><?php printf(__('Devi essere <a href="%s">registrato</a> per lasciare un commento.', 'roots'), wp_login_url(get_permalink())); ?></p>
     <?php else : ?>
       <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
         <?php if (is_user_logged_in()) : ?>
           <p class="text-center">
-            <?php printf(__('Logged in as <a href="%s/wp-admin/profile.php">%s</a>.', 'roots'), get_option('siteurl'), $user_identity); ?>
-            <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Log out of this account', 'roots'); ?>"><?php _e('Log out &raquo;', 'roots'); ?></a>
+            <?php printf(__('Registrato come <a href="%s/wp-admin/profile.php">%s</a>.', 'roots'), get_option('siteurl'), $user_identity); ?>
+            <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Esci dall\'account', 'roots'); ?>"><?php _e('Esci &raquo;', 'roots'); ?></a>
           </p>
         <?php else : ?>
           <div class="form-group">
@@ -61,7 +61,7 @@
           </div>
         <?php endif; ?>
         <div class="form-group">
-          <textarea name="comment" id="comment" class="form-control simplebox" rows="5" aria-required="true" placeholder="<?php _e('Comment', 'roots'); ?>"></textarea>
+          <textarea name="comment" id="comment" class="form-control simplebox" rows="5" aria-required="true" placeholder="<?php _e('Commento', 'roots'); ?>"></textarea>
         </div>
         <p class="text-center"><button name="submit" class="btn btn-primary" type="submit" id="submit"><i class='fi fi-comment'></i> <?php _e('Invia il commento', 'roots'); ?></button></p>
         <?php comment_id_fields(); ?>

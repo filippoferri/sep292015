@@ -36,6 +36,16 @@ function remove_dashboard_meta() {
 }
 add_action( 'admin_init', 'remove_dashboard_meta' );
 
+
+//Remove Metaboxes
+function remove_metaboxes() {
+ remove_meta_box( 'postcustom' , 'post' , 'normal' ); //removes custom fields for page
+ //remove_meta_box( 'commentstatusdiv' , 'post' , 'normal' ); //removes comments status for page
+ remove_meta_box( 'commentsdiv' , 'post' , 'normal' ); //removes comments for page
+ remove_meta_box( 'authordiv' , 'post' , 'normal' ); //removes author for page
+}
+add_action( 'admin_menu' , 'remove_metaboxes' );
+
 // Custom WordPress Admin Color Scheme
 function admin_css() {
     wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/assets/css/admin-style.css' );

@@ -4,14 +4,11 @@ $details  = rwmb_meta( 'author', 'type=post', $post->ID );
 $autore   = get_post_meta($post->ID, "autore", true);
 ?>
 <p class="byline author vcard">
-
 <?php
 if ($details) {
   $args = array(
     'post_type'  => 'authors',
-    'orderby'    => array (
-      'post__in' => $details
-    ),
+	  'p' => $details,
   );
    $the_query = new WP_Query( $args );
 
