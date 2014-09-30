@@ -131,6 +131,7 @@ function ff_register_meta_boxes( $meta_boxes )
 				'query_args' => array(
 					'post_status'    => 'publish',
 					'posts_per_page' => - 1,
+					'orderby' 		 =>  'title',
 				)
 			),
 
