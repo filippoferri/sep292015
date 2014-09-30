@@ -43,7 +43,7 @@ $titolo   = get_post_meta($post->ID, "titolo", true);
       <?php get_template_part( 'templates/content', 'single'); ?>
     </div>
     <div class="col-lg-2">
-      <div class="entry-meta ff-affix visible-lg-block">
+      <div class="entry-meta visible-lg-block">
         <?php get_template_part( 'templates/entry-meta'); ?>
       </div>
     </div>
