@@ -40,7 +40,7 @@ var Roots = {
             //Link Open
             $('a.leave, .navbar a, .content-info a').click( function() {
               $("#preloader").fadeIn(300);
-              $('body').delay(300).css("overflow","hidden");
+              $('body').css("overflow","hidden");
               window.location = $(this).attr("href");
             });
             //Search Open
