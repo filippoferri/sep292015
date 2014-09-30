@@ -151,22 +151,36 @@ require_once RWMB_DIR . 'meta-box.php';
 // Include the meta box definition (the file where you define meta boxes, see `demo/demo.php`)
 include get_template_directory() .  '/admin/meta-box/config-meta-boxes.php';
 
+// THUMBNAILS TO ADMIN POST VIEW
+add_filter('manage_posts_columns', 'posts_columns', 5);
+add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
+
+function posts_columns($defaults){
+    $defaults['voodoo_post_thumbs'] = __('Thumbs');
+    return $defaults;
+}
+
+function posts_custom_columns($column_name, $id){
+	if($column_name === 'voodoo_post_thumbs'){
+        echo the_post_thumbnail( 'thumbnail' );
+    }
+}
+
 //Remove Menu
 function remove_menus(){
   global $submenu, $userdata;
   get_currentuserinfo();
   if ( $userdata->ID != 1 ) {
-    //remove_menu_page( 'index.php' );                  //Dashboard
-    //remove_menu_page( 'edit.php' );                   //Posts
-    //remove_menu_page( 'upload.php' );                 //Media
-    //remove_menu_page( 'edit.php?post_type=page' );    //Pages
+    //remove_menu_page( 'index.php' );                //Dashboard
+    //remove_menu_page( 'edit.php' );                 //Posts
+    //remove_menu_page( 'upload.php' );               //Media
+    //remove_menu_page( 'edit.php?post_type=page' );  //Pages
     remove_menu_page( 'edit-comments.php' );          //Comments
     remove_menu_page( 'themes.php' );                 //Appearance
     remove_menu_page( 'plugins.php' );                //Plugins
-    //remove_menu_page( 'users.php' );                  //Users
+    //remove_menu_page( 'users.php' );                //Users
     remove_menu_page( 'tools.php' );                  //Tools
     remove_menu_page( 'options-general.php' );        //Settings
-    remove_menu_page( 'edit.php?post_type=nectar_slider' );    //Pages
   }
 }
 add_action( 'admin_menu', 'remove_menus' );
