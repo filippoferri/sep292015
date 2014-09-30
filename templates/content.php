@@ -12,9 +12,11 @@ $image_attributes = wp_get_attachment_image_src( $img_id, 'archive-thumb' );
   <div class="entry-item">
    <div class="featured-img">
       <?php
-      if ( has_post_thumbnail() ) {
-        echo '<img class="img-responsive loading" data-src="'.$image_attributes[0].'" width="100%" height="300">';
-      } ?>
+      //if ( has_post_thumbnail() ) {
+      //  echo '<img class="img-responsive loading" data-src="'.$image_attributes[0].'" width="100%" height="300">';
+      //} else {
+	  //	echo '<img class="loading" data-src="'.get_template_directory() .'/assets/img/blank.gif" width="1">';
+	  //} ?>
    </div>
     <header>
       <h2 class="entry-title"><a class="leave" href="<?php the_permalink(); ?>"><?php if ($titolo) { echo $titolo; } else { the_title(); } ?></a></h2>

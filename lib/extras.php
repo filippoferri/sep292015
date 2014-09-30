@@ -106,3 +106,12 @@ function comicpress_copyright() {
   }
   return $output;
 }
+
+//category Rel Fix
+function remove_category_list_rel( $output ) {
+    // Remove rel attribute from the category list
+    return str_replace( ' rel="category tag"', '', $output );
+}
+
+add_filter( 'wp_list_categories', 'remove_category_list_rel' );
+add_filter( 'the_category', 'remove_category_list_rel' );

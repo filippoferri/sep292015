@@ -20,7 +20,7 @@ $profile = wp_get_attachment_image_src( $img_id, 'thumbnail' );
       <?php get_template_part( 'templates/content', 'page'); ?>
       <?php endwhile; ?>
 
-      <h3 class="title"><span></span>Leggi i suoi articoli su Filobus66<span></span></h3>
+      <h3 class="title">Leggi i suoi articoli su Filobus66</h3>
 
       <?php
       $args = array(

@@ -17,7 +17,8 @@ Template Name:  Autori
         <?php
         $args = array(
             'post_type'           => 'authors',
-            'order'               => 'title',
+            'order'               => 'ASC',
+			'orderby'             => 'title',
             'ignore_sticky_posts' => 1,
             'posts_per_page'      => -1,
         );
@@ -31,12 +32,12 @@ Template Name:  Autori
           //Variables
           $auth_desc = get_post_meta($post->ID, "auth_desc", true);
           $img_id    = get_post_thumbnail_id();
-          $img       = wp_get_attachment_image_src( $img_id, 'archive-thumb' );
+          $img       = wp_get_attachment_image_src( $img_id, 'thumbnail' );
           ?>
           <li>
           <?php
           if ( has_post_thumbnail() ) {
-            echo '<img class="img-circle lazy alignleft" data-src="'.$img[0].'" width="100">';
+            echo '<img class="img-circle lazy alignleft" data-src="'.$img[0].'" width="100" height="100">';
           }
           ?>
             <a class="leave" href="<?php the_permalink()?>" alt="<?php echo get_the_title() ?>"><?php echo get_the_title() ?></a>

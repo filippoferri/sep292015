@@ -152,19 +152,29 @@ require_once RWMB_DIR . 'meta-box.php';
 include get_template_directory() .  '/admin/meta-box/config-meta-boxes.php';
 
 // THUMBNAILS TO ADMIN POST VIEW
-add_filter('manage_posts_columns', 'posts_columns', 5);
-add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
+	add_filter('manage_posts_columns', 'posts_columns', 5);
+	add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
 
-function posts_columns($defaults){
-    $defaults['voodoo_post_thumbs'] = __('Thumbs');
-    return $defaults;
-}
+	function posts_columns($defaults){
+		$defaults['voodoo_post_thumbs'] = __('Thumbs');
+		return $defaults;
+	}
 
-function posts_custom_columns($column_name, $id){
-	if($column_name === 'voodoo_post_thumbs'){
-        echo the_post_thumbnail( 'thumbnail' );
-    }
-}
+	function posts_custom_columns($column_name, $id){
+		if($column_name === 'voodoo_post_thumbs'){
+
+			$frontespizi  = rwmb_meta( 'frontespizio', 'type=image_advanced&size=mini', $post->ID );
+			if( $frontespizi ) {
+				foreach ( $frontespizi as $frontespizio ) {
+					echo '<img src="'.$frontespizio["url"].'" width="100" height="100">';
+				}
+			} else if ( has_post_thumbnail() ) {
+				echo the_post_thumbnail( 'mini' );
+			} else {
+				echo '<img src="'. get_template_directory_uri() .'/assets/img/no-img.jpg" width="100" height="100">';
+			}
+		}
+	}
 
 //Remove Menu
 function remove_menus(){

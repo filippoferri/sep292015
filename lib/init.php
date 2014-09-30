@@ -18,6 +18,7 @@ function roots_setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size( 'mini', 100, 100 );
   add_image_size( 'amz-cover', 300, 400 );
   add_image_size( 'intro-cover', 400, 600 );
   add_image_size( 'homepage-thumb', 400, 350, true );

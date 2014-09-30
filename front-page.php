@@ -26,8 +26,8 @@
 			$rec_desc         = get_post_meta($post->ID, 'descrizione', true);
 			$rec_frontespizi  = rwmb_meta( 'frontespizio', 'type=image_advanced&size=intro-cover', $post->ID );
 		  	?>
-             <div class="intro_item" data-animated="fadeIn">
-                <div class="col-lg-3 col-md-offset-1">
+             <div class="intro_item">
+                <div class="col-lg-3 col-md-offset-2">
                   <div class="img-wrap-a">
                     <span></span><a class="zoom" href="<?php the_permalink() ?>"></a>
                     <?php foreach ( $rec_frontespizi as $rec_frontespizio ) {
@@ -35,8 +35,8 @@
               } ?>
                   </div>
                 </div>
-                <div class="col-lg-7">
-                  <h1>Recensione di <?php echo $rec_autore ?></h1>
+                <div class="col-lg-5">
+                  <h1>Recensione</h1>
                   <h2><?php echo $rec_titolo ?></h2>
                   <p><?php if ($rec_desc) { echo $rec_desc; } else { the_excerpt(); } ?></p>
                   <a href="<?php the_permalink() ?>" class="btn btn-border leave"><span class="fi fi-book2"></span> Leggi la recensione</a>
@@ -56,7 +56,7 @@
   </div>
 </section>
 <!-- //Recensioni -->
-<h3 class="title"><span></span>Un diario verde<span></span></h3>
+<h3 class="title"><?php echo get_theme_mod( 'title1' ); ?></h3>
 
 <!-- Un diario Verde -->
 <section class="box">
@@ -83,7 +83,7 @@
 				$green_img_id   = get_post_thumbnail_id($post->ID);
 				$green_featured = wp_get_attachment_image_src( $green_img_id, 'homepage-thumb' );
 		  ?>
-        <div class="carousel_intro"><div class="img-wrap"><img class="lazy" data-src="<?php echo $green_featured[0] ?>" width="400" height="350"><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a class="leave" href="<?php the_permalink() ?>" alt="<?php echo $green_titolo ?>"><?php echo $green_titolo ?></a></span></div>
+        <div class="carousel_intro"><div class="img-wrap"><img class="lazy" data-lazy="<?php echo $green_featured[0] ?>" width="400" height="350"><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a class="leave" href="<?php the_permalink() ?>" alt="<?php echo $green_titolo ?>"><?php echo $green_titolo ?></a></span></div>
         <?php   }
         } else {
             // no posts found
@@ -99,7 +99,7 @@
 </section>
 <!-- //Un diario Verde -->
 
-<h3 class="title"><span></span>La casa di vetro<span></span></h3>
+<h3 class="title"><?php echo get_theme_mod( 'title2' ); ?></h3>
 
 <!-- La Casa di Vetro -->
 <section class="box">
@@ -150,7 +150,7 @@
 <section class="box full-width">
   <div class="container">
     <div class="row d-content">
-      <h3 class="title white"><span></span>L'arte di leggere e di non leggere<span></span></h3>
+      <h3 class="title white"><?php echo get_theme_mod( 'title3' ); ?></h3>
       <?php
       $args = array(
           'post_type'               => 'post',
@@ -173,7 +173,7 @@
         <div class="boxed" data-animated="fadeInUp">
           <h4><?php echo $read_titolo ?></h4>
           <p><?php if ($read_desc) { echo $read_desc; } else { the_excerpt(); } ?></p>
-          <div><a class="btn btn-empty leave" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span> Leggi</a></div>
+          <div><a class="btn btn-empty leave" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span></a></div>
         </div>
       </div>
       <?php   }
@@ -188,8 +188,6 @@
 </section>
 <!-- //L'arte di leggere e di non leggere -->
 
-<h3 class="title"><span></span>Buona Lettura<span></span></h3>
-
 <!-- Amazon -->
 <section class="box">
   <div class="container">
@@ -200,7 +198,7 @@
           'post_type'               => 'amazon',
           'order'                   => 'DESC',
               'ignore_sticky_posts' => 1,
-              'posts_per_page'      => 3,
+              'posts_per_page'      => 4,
       );
 
       $the_query = new WP_Query( $args );
@@ -210,26 +208,26 @@
           while ( $the_query->have_posts() ) {
               $the_query->the_post();
 				//variables
-				$amz_titolo   = get_post_meta($post->ID, "amz_titolo", true);
-				$amz_autore   = get_post_meta($post->ID, "amz_autore", true);
+				$amz_titolo   = get_post_meta($post->ID, "amz_title", true);
+				$amz_autore   = get_post_meta($post->ID, "amz_author", true);
 				$amz_url      = get_post_meta($post->ID, "amz_url", true);
-				$amz_imgs     = rwmb_meta( 'amz_cover', 'type=image&size=amz-cover', $post->ID );
+				$amz_imgs     = rwmb_meta( 'amz_cover', 'type=image_advanced&size=amz-cover', $post->ID );
 		?>
       <div class="col-lg-3">
         <div class="product_item" data-animated="fadeInUp">
             <div class="hover_img">
             <?php
             foreach ( $amz_imgs as $amz_img ) {
-                echo '<img class="lazy" data-src="{$image["url"]}" alt="" width="100%" />';
+                echo '<img class="lazy" data-src="'.$amz_img["url"].'" alt="" width="100%" />';
             }
             ?>
             </div>
             <div class="item_btn_in center">
-              <a class="tovar_open leave" href="<?php echo $amz_url ?>" alt="<?php echo $amz_title ?>" target="_blank">Scopri su Amazon</a>
+              <a class="tovar_open leave" href="<?php echo $amz_url ?>" alt="<?php echo $amz_titolo ?>" target="_blank">Scopri su Amazon</a>
             </div>
             <div class="project_descr">
-                <a href="#" alt=""><?php echo $amz_author ?></a>
-                <span class="title"><?php echo $amz_title ?></span>
+                <a href="#" alt=""><?php echo $amz_autore ?></a>
+                <span class="title"><?php echo $amz_titolo ?></span>
             </div>
         </div>
       </div>

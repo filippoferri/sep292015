@@ -167,7 +167,7 @@ var Roots = {
                 breakpoint: 768,
                 settings: {
                   arrows: false,
-                  centerMode: true,
+                  centerMode: false,
                   centerPadding: '',
                   slidesToShow: 2
                 }
