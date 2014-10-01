@@ -67,20 +67,20 @@ add_action('gform_enqueue_scripts',"my_gform_enqueue_scripts", 10, 2);
 function my_gform_enqueue_scripts($form, $is_ajax=false) { ?>
 
 <script>
-  jQuery(function(){
-  <?php
+	  jQuery(document).ready(function(){
+	  <?php
 
-  /* Go through each one of the form fields */
-  foreach($form['fields'] as $i=>$field){
-  /* Check if the field has an assigned placeholder */
-  if(isset($field['placeholder']) && !empty($field['placeholder'])) {
-  /* If a placeholder text exists, inject it as a new property to the field using jQuery */
-  ?>
+	  /* Go through each one of the form fields */
+	  foreach($form['fields'] as $i=>$field){
+	  /* Check if the field has an assigned placeholder */
+	  if(isset($field['placeholder']) && !empty($field['placeholder'])) {
+	  /* If a placeholder text exists, inject it as a new property to the field using jQuery */
+	  ?>
 
-  jQuery('#input_<?php echo $form['id']?>_<?php echo $field['id']?>').attr('placeholder','<?php echo $field['placeholder']?>');
+	  jQuery('#input_<?php echo $form['id']?>_<?php echo $field['id']?>').attr('placeholder','<?php echo $field['placeholder']?>');
 
-  <?php } } ?>
-  });
+	  <?php } } ?>
+	  });
 </script>
 <?php }
 

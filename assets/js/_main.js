@@ -24,17 +24,17 @@ var Roots = {
     init: function() {
       // JavaScript to be fired on all pages
 
-      //Page load
-      jQuery(window).load(function () {
+      //Ready window
+      jQuery(window).ready(function () {
 
-          $('#msg-loading').delay(300).fadeOut('slow');
-          $('#preloader').delay(300).fadeOut('slow');
-          $('body').delay(300).css("overflow","visible");
+		//Loading page
+		$('#msg-loading').fadeOut('slow');
+		$('#preloader').fadeOut('slow');
+		$('body').css("overflow","visible");
 
-      }); //End page load
+	  });
 
-      //Document Ready
-      $(document).ready(function() {
+	  jQuery(window).ready(function () {
 
         //buttons
             //Link Open
@@ -113,6 +113,9 @@ var Roots = {
         });
 
         //Fancybox
+		$(".entry-content").find("a[rel!='ignore']").each(function() {
+			this.rel += 'prettyPhoto';
+		});
         $("a[rel^='prettyPhoto']").prettyPhoto({
           animation_speed: 'slow', /* fast/slow/normal */
           slideshow: 5000, /* false OR interval time in ms */
