@@ -27,7 +27,7 @@
 			$rec_frontespizi  = rwmb_meta( 'frontespizio', 'type=image_advanced&size=intro-cover', $post->ID );
 		  	?>
              <div class="intro_item">
-                <div class="col-lg-3 col-md-offset-2">
+                <div class="col-sm-3 col-sm-offset-2">
                   <div class="img-wrap-a">
                     <span></span><a class="zoom" href="<?php the_permalink() ?>"></a>
                     <?php foreach ( $rec_frontespizi as $rec_frontespizio ) {
@@ -35,7 +35,7 @@
               } ?>
                   </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-sm-5">
                   <h1>Recensione</h1>
                   <h2><?php echo $rec_titolo ?></h2>
                   <p><?php if ($rec_desc) { echo $rec_desc; } else { the_excerpt(); } ?></p>
@@ -83,7 +83,7 @@
 				$green_img_id   = get_post_thumbnail_id($post->ID);
 				$green_featured = wp_get_attachment_image_src( $green_img_id, 'homepage-thumb' );
 		  ?>
-        <div class="carousel_intro"><div class="img-wrap"><img class="lazy" data-lazy="<?php echo $green_featured[0] ?>" width="400" height="350"><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a class="leave" href="<?php the_permalink() ?>" alt="<?php echo $green_titolo ?>"><?php echo $green_titolo ?></a></span></div>
+        <div class="carousel_intro"><div class="img-wrap"><img class="lazy" data-lazy="<?php echo $green_featured[0] ?>" width="400"><span></span><a class="zoom" href="<?php the_permalink() ?>"></a></div><span class="c-title"><a class="leave" href="<?php the_permalink() ?>" alt="<?php echo $green_titolo ?>"><?php echo $green_titolo ?></a></span></div>
         <?php   }
         } else {
             // no posts found
@@ -124,7 +124,7 @@
 			$glass_titolo       = get_post_meta($post->ID, "titolo", true);
 			$glass_autore       = get_post_meta($post->ID, "autore", true);
 		?>
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-sm-6">
         <a class="b-wrapper leave" href="<?php the_permalink() ?>" data-animated="fadeInUp">
           <div class="b-wrap fix-height">
             <span class="b-title"><?php echo $glass_titolo ?></span>
@@ -213,7 +213,7 @@
 				$amz_url      = get_post_meta($post->ID, "amz_url", true);
 				$amz_imgs     = rwmb_meta( 'amz_cover', 'type=image_advanced&size=amz-cover', $post->ID );
 		?>
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-sm-6">
         <div class="product_item" data-animated="fadeInUp">
             <div class="hover_img">
             <?php

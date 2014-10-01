@@ -170,9 +170,9 @@ var Roots = {
                 breakpoint: 768,
                 settings: {
                   arrows: false,
-                  centerMode: false,
+                  centerMode: true,
                   centerPadding: '',
-                  slidesToShow: 2
+                  slidesToShow: 3
                 }
               },
               {

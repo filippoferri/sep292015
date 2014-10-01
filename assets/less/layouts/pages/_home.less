@@ -9,7 +9,7 @@
 
         h2 { font-size: 1.6em; font-style: italic; }
         h1, p { font-size: 1em; }
-        h1 { display: block; text-align: left; font-family: @sans-serif;}
+        h1 { display: block; text-align: center; font-family: @sans-serif;}
         img { display: none }
       .btn { margin-bottom: 1em }
     }
@@ -61,6 +61,8 @@
   .slide_carousel {
     .c-title {
       display: block;
+	  color: @gray-darker;
+	  font-style: italic;
       text-align: center;
       font-size: 1em;
       padding: 1em 0 0 0;
@@ -69,7 +71,8 @@
     }
     .slick-center .c-title { .opacity(1); .transition(opacity 0.4s ease-in-out);  }
 
-    .slick-slide .img-wrap span, .slick-slide .img-wrap a.zoom { display: none }
+    .slick-slide .img-wrap span { .opacity(0.6); background-color: @gray-darker; }
+	.slick-slide .img-wrap a.zoom { display: none }
     .slick-slide.slick-center .img-wrap {
       position: relative;
 
@@ -215,7 +218,7 @@
 }
 
 //Amazon
-.product_item {overflow:hidden; position:relative; .box-shadow(0 1px 0 rgba(0,0,0,.15),0 0 1px rgba(0,0,0,.3)); }
+.product_item {overflow:hidden; position:relative; .box-shadow(0 1px 0 rgba(0,0,0,.15),0 0 1px rgba(0,0,0,.3)); margin-bottom: 1em }
 .product_item .project_descr {
   position:absolute;
   left:0;
@@ -271,6 +274,7 @@
     img { display: inline-block; float: left; margin-right: 1em; margin-bottom: 1em; }
   }
   .latest_projects .element {width:33.333%;}
+  .intro .intro-body .review h1 { text-align: left; }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -323,6 +327,6 @@
   .slide_carousel { .opacity(0); }
   .b-wrapper { .opacity(0); margin-bottom: 0; }
   .boxed { .opacity(0); }
-  .product_item { .opacity(0); }
+  .product_item { .opacity(0); margin-bottom: 0 }
   .b-wrapper { height: 350px; padding: 10px; .border-radius(0 6px 6px 0;) }
 }
