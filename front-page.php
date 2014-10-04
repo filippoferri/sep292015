@@ -62,7 +62,7 @@
 <section class="box">
   <div class="container">
 
-      <div class="slide_carousel" data-animated="fadeInUp">
+      <div class="slide_carousel" data-animated="fadeIn">
 
       <?php
         $args = array(
@@ -125,7 +125,7 @@
 			$glass_autore       = get_post_meta($post->ID, "autore", true);
 		?>
       <div class="col-lg-3 col-sm-6">
-        <a class="b-wrapper leave" href="<?php the_permalink() ?>" data-animated="fadeInUp">
+        <a class="b-wrapper leave" href="<?php the_permalink() ?>" data-animated="fadeIn">
           <div class="b-wrap fix-height">
             <span class="b-title"><?php echo $glass_titolo ?></span>
             <span class="b-author"><?php echo $glass_autore ?></span>
@@ -170,9 +170,11 @@
 			$read_desc         = get_post_meta($post->ID, 'descrizione', true);
 		?>
       <div class="col-lg-4">
-        <div class="boxed" data-animated="fadeInUp">
-          <h4><?php echo $read_titolo ?></h4>
-          <p><?php if ($read_desc) { echo $read_desc; } else { the_excerpt(); } ?></p>
+        <div class="boxed" data-animated="fadeIn">
+          <div class="fix-height">
+            <h4><?php echo $read_titolo ?></h4>
+            <p><?php if ($read_desc) { echo $read_desc; } else { the_excerpt(); } ?></p>
+		  </div>
           <div><a class="btn btn-empty leave" href="<?php the_permalink() ?>"><span class="fi fi-book2"></span></a></div>
         </div>
       </div>
@@ -214,7 +216,7 @@
 				$amz_imgs     = rwmb_meta( 'amz_cover', 'type=image_advanced&size=amz-cover', $post->ID );
 		?>
       <div class="col-lg-3 col-sm-6">
-        <div class="product_item" data-animated="fadeInUp">
+        <div class="product_item" data-animated="fadeIn">
             <div class="hover_img">
             <?php
             foreach ( $amz_imgs as $amz_img ) {
