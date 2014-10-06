@@ -123,12 +123,36 @@
             $the_query->the_post();
 			$glass_titolo       = get_post_meta($post->ID, "titolo", true);
 			$glass_autore       = get_post_meta($post->ID, "autore", true);
+            $glass_details            = rwmb_meta( 'author', 'type=post', $post->ID );
 		?>
       <div class="col-lg-3 col-sm-6">
         <a class="b-wrapper leave" href="<?php the_permalink() ?>" data-animated="fadeIn">
           <div class="b-wrap fix-height">
             <span class="b-title"><?php echo $glass_titolo ?></span>
-            <span class="b-author"><?php echo $glass_autore ?></span>
+            <?php
+            if ($glass_details) {
+              $margs = array(
+                'post_type'  => 'authors',
+                  'p' => $glass_details,
+              );
+               $new_query = new WP_Query( $margs );
+
+                // The Loop
+                if ( $new_query->have_posts() ) {
+                    while ( $new_query->have_posts() ) {
+                        $new_query->the_post();
+              ?>
+                        <span class="b-author"><?php echo the_title(); ?></span>
+                  <?php  }
+                } else {
+                  //no posts
+                }
+                /* Restore original Post Data */
+                wp_reset_postdata();
+            } else {
+              echo '<span class="b-author">'.$glass_autore.'</span>';
+            }
+            ?>
           </div>
           <div class="b-read">leggi</div>
         </a>
